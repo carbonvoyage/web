@@ -1,0 +1,8 @@
+packageExtensions:
+    eslint-config-next@*:
+        dependencies:
+            next: "*"
+            react: "*"
+            react-dom: "*"
+
+yarnPath: .yarn/releases/yarn-3.2.2.cjs
