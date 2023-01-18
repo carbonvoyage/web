@@ -1,5 +1,5 @@
 {
-    "$schema": "https://turborepo.org/schema.json",
+    "$schema": "https://turbo.build/schema.json",
     "pipeline": {
         "build": {
             "dependsOn": ["^build"],
@@ -11,5 +11,17 @@
         "dev": {
             "cache": false
         }
-    }
+    },
+    "globalEnv": [
+        "STRIPE_WEBHOOK_SECRET",
+        "STRIPE_WEBHOOK_SECRET_LIVE",
+        "STRIPE_SECRET_KEY",
+        "STRIPE_SECRET_KEY_LIVE",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "NEXT_PUBLIC_SUPABASE_URL",
+        "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_LIVE",
+        "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY",
+        "NEXT_PUBLIC_SITE_URL",
+        "NEXT_PUBLIC_VERCEL_URL"
+    ]
 }

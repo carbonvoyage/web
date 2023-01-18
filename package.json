@@ -1,5 +1,5 @@
 {
-    "name": "carbon-zero",
+    "name": "carbon-voyage",
     "version": "0.0.0",
     "private": true,
     "workspaces": [
@@ -13,13 +13,12 @@
         "format": "prettier --write \"**/*.{ts,tsx,md}\""
     },
     "devDependencies": {
-        "eslint-config-custom": "*",
-        "prettier": "latest",
-        "turbo": "latest"
+        "eslint-config-custom": "workspace:^0.0.0",
+        "prettier": "^2.8.3",
+        "turbo": "^1.7.0"
     },
     "engines": {
-        "node": ">=16.0.0"
+        "node": ">=18.0.0"
     },
-    "dependencies": {},
-    "packageManager": "yarn@1.22.17"
+    "packageManager": "pnpm@7.25.0"
 }

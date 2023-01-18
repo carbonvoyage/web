@@ -1,3 +1,0 @@
-# Carbon Zero Backend
-
-<!-- TODO -->

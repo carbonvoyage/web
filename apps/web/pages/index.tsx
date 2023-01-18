@@ -1,10 +1,23 @@
-import { Button } from "ui";
+import Pricing from 'components/Pricing';
+import { getActiveProductsWithPrices } from 'utils/supabase-client';
+import { Product } from 'types';
+import { GetStaticPropsResult } from 'next';
 
-export default function Web() {
-    return (
-        <div>
-            <h1>Carbon Zero Website</h1>
-            <Button />
-        </div>
-    );
+interface Props {
+  products: Product[];
+}
+
+export default function PricingPage({ products }: Props) {
+  return <Pricing products={products} />;
+}
+
+export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
+  const products = await getActiveProductsWithPrices();
+
+  return {
+    props: {
+      products
+    },
+    revalidate: 60
+  };
 }
