@@ -2,13 +2,10 @@
     "name": "carbon-voyage",
     "version": "0.0.0",
     "private": true,
-    "workspaces": [
-        "apps/*",
-        "packages/*"
-    ],
     "scripts": {
         "build": "turbo run build",
         "dev": "turbo run dev --parallel",
+        "clean": "turbo run clean && rm -rf node_modules && rm -rf .turbo && rm -rf apps/web/node_modules && rm -rf apps/web/.next && rm -rf apps/extension/node_modules",
         "lint": "turbo run lint",
         "format": "prettier --write \"**/*.{ts,tsx,md}\""
     },
