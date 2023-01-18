@@ -29,11 +29,11 @@ This turborepo has some additional tools already setup for you:
 
 ### Getting Started
 
-Use [nvm](https://github.com/nvm-sh/nvm) to install Node.js v18.12.1 and [pnpm](https://pnpm.io/) to install the dependencies:
+Use [nvm](https://github.com/nvm-sh/nvm) to install Node.js v16.18.1 and [pnpm](https://pnpm.io/) to install the dependencies:
 
 ```bash
-nvm install         # installs Node.js v18.12.1
-nvm use             # uses Node.js v18.12.1
+nvm install         # installs Node.js v16.18.1
+nvm use             # uses Node.js v16.18.1
 npm install -g pnpm # installs pnpm
 pnpm install        # installs dependencies
 ```
