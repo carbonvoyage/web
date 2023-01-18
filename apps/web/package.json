@@ -6,7 +6,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "stripe:listen": "stripe listen --forward-to=localhost:3000/api/webhooks --project-name=carbonvoyage"
+    "stripe:listen": "stripe listen --forward-to=localhost:3000/api/webhooks --project-name=carbonvoyage",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@stripe/stripe-js": "1.46.0",

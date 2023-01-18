@@ -36,3 +36,4 @@ yarn-error.log*
 # extension
 apps/extension/dist/js/*
 apps/extension/storybook-static/*
+.vercel
