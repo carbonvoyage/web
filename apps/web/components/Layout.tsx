@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import Navbar from 'components/ui/Navbar';
-import Footer from 'components/ui/Footer';
+import Navbar from 'components/Navbar';
+import Footer from 'components/Footer';
 import { ReactNode } from 'react';
 import { PageMeta } from '../types';
 
@@ -14,7 +14,7 @@ interface Props {
 export default function Layout({ children, meta: pageMeta }: Props) {
   const router = useRouter();
   const meta = {
-    title: 'Next.js Subscription Starter',
+    title: 'Carbon Voyage',
     description: 'Brought to you by Vercel, Stripe, and Supabase.',
     cardImage: '/og.png',
     ...pageMeta
@@ -29,7 +29,7 @@ export default function Layout({ children, meta: pageMeta }: Props) {
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
-          content={`https://subscription-starter.vercel.app${router.asPath}`}
+          content={`https://carbonvoyage.org${router.asPath}`}
         />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={meta.title} />
@@ -37,7 +37,7 @@ export default function Layout({ children, meta: pageMeta }: Props) {
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.cardImage} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@vercel" />
+        <meta name="twitter:site" content="https://carbonvoyage.org" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.cardImage} />

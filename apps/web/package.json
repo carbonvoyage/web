@@ -24,6 +24,7 @@
     "swr": "2.0.1",
     "tailwindcss": "3.2.4",
     "turbo-ignore": "^0.5.0",
+    "icons": "workspace:*",
     "ui": "workspace:*"
   },
   "devDependencies": {

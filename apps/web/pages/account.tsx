@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { GetServerSidePropsContext } from 'next';
 import { useState, ReactNode } from 'react';
 
-import LoadingDots from 'components/ui/LoadingDots';
-import Button from 'components/ui/Button';
+import LoadingDots from 'ui/LoadingDots';
+import Button from 'ui/Button';
 import { useUser } from 'utils/useUser';
 import { postData } from 'utils/helpers';
 

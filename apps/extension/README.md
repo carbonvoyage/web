@@ -12,17 +12,17 @@ In [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/), open up the [a
 
 ## Built with
 
--   [React](https://reactjs.org)
--   [TypeScript](https://www.typescriptlang.org/)
--   [Eslint](https://eslint.org/)
--   [Prettier](https://prettier.io/)
--   [Webpack](https://webpack.js.org/)
--   [Babel](https://babeljs.io/)
--   [Tailwind CSS](https://tailwindcss.com/)
--   [webextension-polyfill](https://github.com/mozilla/webextension-polyfill)
+- [React](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Eslint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [Webpack](https://webpack.js.org/)
+- [Babel](https://babeljs.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [webextension-polyfill](https://github.com/mozilla/webextension-polyfill)
 
 ## Misc. References
 
--   [Chrome Extension Developer Guide](https://developer.chrome.com/extensions/devguide)
--   [Firefox Extension Developer Guide](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension)
--   [Eslint + Prettier + Typescript Guide](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb)
+- [Chrome Extension Developer Guide](https://developer.chrome.com/extensions/devguide)
+- [Firefox Extension Developer Guide](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension)
+- [Eslint + Prettier + Typescript Guide](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb)

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import s from './Navbar.module.css';
 
-import Logo from 'components/icons/Logo';
+import { Logo } from 'icons';
 import { useRouter } from 'next/router';
 import { useUser } from 'utils/useUser';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
