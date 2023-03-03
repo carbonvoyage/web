@@ -1,0 +1,274 @@
+﻿Category 1,Category 2,Category 3,Title,Unit,Emission Factor,Uncertainty
+Conversion,Gas,GWP,GWP CH4,kg,25.00,0%
+Conversion,Gas,GWP,GWP N2O,kg,298.00,0%
+Energy,Electricity,Country,Canada,kWh,0.19,10%
+Energy,Heat,Combustible,Black coal,kWh,0.32,
+Energy,Heat,Combustible,Brown coal,kWh,0.40,10%
+Energy,Heat,Combustible,Brown coal briquette,kWh,0.40,10%
+Energy,Heat,Combustible,Brown coal coke,kWh,0.50,10%
+Energy,Heat,Combustible,CNG,kWh,0.18,
+Energy,Heat,Combustible,Coal coke,kWh,0.39,10%
+Energy,Heat,Combustible,Crude oil,kWh,0.27,5%
+Energy,Heat,Combustible,Diesel (kWh),kWh,0.30,5%
+Energy,Heat,Combustible,Diesel (liter),liter,2.79,5%
+Energy,Heat,Combustible,Ethane,kWh,0.20,
+Energy,Heat,Combustible,Fuel oil (kWh),kWh,0.29,5%
+Energy,Heat,Combustible,Fuel oil (liter),liter,3.19,5%
+Energy,Heat,Combustible,Gas flared,kg,3.53,
+Energy,Heat,Combustible,Kerosene,kWh,0.27,5%
+Energy,Heat,Combustible,LNG (kWh),kWh,0.21,5%
+Energy,Heat,Combustible,LPG (liter),liter,1.69,10%
+Energy,Heat,Combustible,Natural gas,kWh,0.21,5%
+Energy,Heat,Combustible,Petroleum coke,kWh,0.35,10%
+Energy,Heat,Combustible,UNG,kWh,0.18,
+Energy,Heat,Organic combustible,Biodiesel (kWh),kWh,0.01,
+Energy,Heat,Organic combustible,Biodiesel (liter),liter,0.81,
+Energy,Heat,Organic combustible,Bioethanol,kg,1.21,10%
+Energy,Heat,Organic combustible,Biogas (kg),kg,1.61,
+Energy,Heat,Organic combustible,Biogas (kWh),kWh,0.02,
+Energy,Heat,Organic combustible,Biogas (m3),m3,0.12,
+Energy,Heat,Organic combustible,Biomass (kg),kg,0.11,10%
+Energy,Heat,Organic combustible,Biomass (kWh),kWh,0.03,10%
+Energy,Heat,Organic combustible,Methanol,kg,0.30,
+Energy,Heat,Organic combustible,"Petrol, 85% ethanol",kg,1.16,
+Energy,Heat,Steam,Steam,kg,0.61,0%
+Material,Building,Insulation,Glasswool,kg,1.35,
+Material,Building,Insulation,Insulation,kg,1.86,
+Material,Building,Insulation,Mineral wool,kg,1.20,
+Material,Building,Insulation,Wool,kg,0.15,
+Material,Building,Insulation,Wool r.,kg,3.17,
+Material,Construction material,Cement,Cement,kg,0.89,20%
+Material,Construction material,Concrete,Concrete (kg),kg,0.15,20%
+Material,Construction material,Concrete,Concrete (m3),m3,263.00,
+Material,Construction material,Concrete,Reinforced concrete,kg,0.36,20%
+Material,Construction material,Fibre,Fibreglass,kg,2.60,20%
+Material,Construction material,Gravel,Gravel,ton,4.32,
+Material,Construction material,Lime,Lime,kg,0.74,
+Material,Construction material,Other,Anthracite,kg,0.53,10%
+Material,Construction material,Other,Other,kg,3.00,80%
+Material,Construction material,Sand,Sand,kg,0.01,
+Material,Iron metal,Iron,Cast iron,kg,1.51,
+Material,Iron metal,Iron,Iron,kg,1.91,
+Material,Iron metal,Steel,Reinforced steel,kg,1.49,
+Material,Iron metal,Steel,Stainless steel,kg,6.15,
+Material,Iron metal,Steel,Steel,kg,1.77,
+Material,Iron metal,Steel,Steel r.,kg,0.88,10%
+Material,Iron metal,Steel,Steel v.,kg,3.29,10%
+Material,Non Iron metal,Aluminium,Aluminium,kg,8.14,
+Material,Non Iron metal,Aluminium,Aluminium r.,kg,2.01,30%
+Material,Non Iron metal,Aluminium,Aluminium v.,kg,11.89,30%
+Material,Non Iron metal,Copper,Copper,kg,2.77,50%
+Material,Non Iron metal,Copper,Copper v.,kg,3.83,
+Material,Non Iron metal,Glass,Glass,kg,0.85,
+Material,Non Iron metal,Glass,Glass r.,kg,0.73,20%
+Material,Non Iron metal,Glass,Glass v.,kg,4.40,20%
+Material,Non Iron metal,Lead,Lead,kg,1.64,30%
+Material,Non Iron metal,Lead,Lead r.,kg,0.53,
+Material,Non Iron metal,Lead,Lead v.,kg,2.61,
+Material,Non Iron metal,Nickel,Nickel,kg,11.53,30%
+Material,Non Iron metal,Other,Other metal,kg,4.40,80%
+Material,Non Iron metal,Zinc,Zinc,kg,3.41,20%
+Material,Non Iron metal,Zinc,Zinc r.,kg,0.48,
+Material,Non Iron metal,Zinc,Zinc v.,kg,3.86,
+Material,Other,Battery&pile,Battery Alkaline,kg,0.07,
+Material,Other,Battery&pile,Battery NiCd,kg,0.21,
+Material,Other,Battery&pile,Battery NiMH,kg,57.40,
+Material,Other,Board,Board,kg,2.20,20%
+Material,Other,Monetary,Electronic,kEUR,550.00,50%
+Material,Other,Monetary,Mechanical,kEUR,733.33,50%
+Material,Other,Monetary,Monetary ratio 1,kEUR,36.67,50%
+Material,Other,Monetary,Monetary ratio 2,kEUR,110.00,50%
+Material,Other,Monetary,Monetary ratio 3,kEUR,165.00,50%
+Material,Other,Monetary,Monetary ratio 4,kEUR,183.33,50%
+Material,Other,Monetary,Monetary ratio 5,kEUR,220.00,50%
+Material,Other,Monetary,Monetary ratio 9,kEUR,"1833.33",50%
+Material,Other,Monetary,Services highly material,kEUR,110.00,50%
+Material,Other,Monetary,Services slightly material,kEUR,36.67,50%
+Material,Other,Paper,Paper,kg,2.42,20%
+Material,Other,Waste,Waste,ton,14.67,50%
+Material,Other,Waste,Waste plastics,ton,"1739.67",20%
+Material,Plastic,Fibre,GRP,kg,8.10,
+Material,Plastic,Other,Other plastic,kg,2.70,20%
+Material,Plastic,Rubber,Rubber,kg,3.18,
+Material,Plastic,Rubber,Rubber latex,kg,1.63,
+Material,Plastic,Rubber,Rubber synt.,kg,4.02,
+Material,Plastic,Thermodurcible,Polyurethane flex.,kg,4.99,40%
+Material,Plastic,Thermodurcible,Polyurethane rig.,kg,3.61,
+Material,Plastic,Thermoplastic,ABS,kg,3.46,
+Material,Plastic,Thermoplastic,EVAC,kg,2.11,
+Material,Plastic,Thermoplastic,HDPE r.,kg,1.10,20%
+Material,Plastic,Thermoplastic,HDPE v.,kg,1.90,20%
+Material,Plastic,Thermoplastic,LDPE r.,kg,1.01,20%
+Material,Plastic,Thermoplastic,LDPE v.,kg,2.06,20%
+Material,Plastic,Thermoplastic,Nylon,kg,7.90,
+Material,Plastic,Thermoplastic,PE,kg,2.40,
+Material,Plastic,Thermoplastic,PET r.,kg,1.76,20%
+Material,Plastic,Thermoplastic,PET v.,kg,5.44,20%
+Material,Plastic,Thermoplastic,Polystyrene,kg,3.07,
+Material,Plastic,Thermoplastic,PP gra.,kg,1.95,
+Material,Plastic,Thermoplastic,PVC r.,kg,0.48,20%
+Material,Plastic,Thermoplastic,PVC v.,kg,2.22,20%
+Material,Plastic,Thermoplastic,SAN,kg,3.46,
+Process,Water,Other,Tap water,m3,0.32,
+Process,Water,Other,Water,m3,0.03,
+Process,Water,Other,Water decarb.,m3,0.01,
+Process,Water,Other,Water deion.,m3,0.80,
+Process,Water,Other,Water solf.,m3,0.02,
+Reagent,Chemical,Al(OH)3,"Aluminium hydroxide, Al(OH)3",kg,0.66,
+Reagent,Chemical,Al2(SO4)3,"Aluminium sulphate, powder, Al2(SO4)3",kg,0.50,
+Reagent,Chemical,Al2O3,"Aluminium oxide, Al2O3",kg,1.23,
+Reagent,Chemical,AlCl3,"Aluminium chloride, AlCl3",kg,0.60,0%
+Reagent,Chemical,Alcool,Alcohol,kg,1.47,25%
+Reagent,Chemical,C2Cl4,"Tetrachloroethylene, C2Cl4",kg,3.90,
+Reagent,Chemical,C2H3ClO2,"Chloroacetic acid, C2H3ClO2",kg,2.20,
+Reagent,Chemical,C2H6O,"Ethanol from ethylene, C2H6O",kg,1.24,
+Reagent,Chemical,C2HCl3,"Trichloroethylene, C2HCl3",kg,0.45,
+Reagent,Chemical,C3H6O,"Acetone, liquid, C3H6O",kg,2.19,
+Reagent,Chemical,C3H6O,"Propanal, C3H6O",kg,3.32,
+Reagent,Chemical,C3H7OH,"Isopropanol, C3H7OH",kg,1.85,
+Reagent,Chemical,C3H8O,"1-propanol, C3H8O",kg,3.84,
+Reagent,Chemical,C3H8O2,"Propylene glycol, C3H8O2",kg,4.14,
+Reagent,Chemical,C4H10O,"Isobutanol, C4H10O",kg,2.27,
+Reagent,Chemical,C4H8O,"Tetrahydrofuran, C4H8O",kg,5.78,
+Reagent,Chemical,C5H12,"Pentane, C5H12",kg,1.09,
+Reagent,Chemical,C5H12O,"1-pentanol, C5H12O",kg,4.52,
+Reagent,Chemical,C6H14,"Hexane, C6H14",kg,0.62,50%
+Reagent,Chemical,C6H14O4,"Triethylene glycol, C6H14O4",kg,3.09,
+Reagent,Chemical,C6H4Cl2,"o-dichlorobenzene, C6H4Cl2",kg,12.20,
+Reagent,Chemical,C6H4Cl2,"p-dichlorobenzene, C6H4Cl2",kg,12.20,
+Reagent,Chemical,C6H5Cl,"Monochlorobenzene, C6H5Cl",kg,12.20,
+Reagent,Chemical,C6H5OH,"Phenol, C6H5OH",kg,3.87,
+Reagent,Chemical,C6H6,"Benzene, C6H6",kg,1.76,
+Reagent,Chemical,C7H16,"Heptane, C7H16",kg,0.92,
+Reagent,Chemical,C7H8 (C6H5CH3),"Toluene, C7H8 (C6H5CH3)",kg,1.47,
+Reagent,Chemical,CaC2,"Calcium carbide, technical grade, CaC2",kg,3.68,
+Reagent,Chemical,CaCl2,"Calcium chloride, CaCl2, CaCl2",kg,0.89,
+Reagent,Chemical,CH2O2,"Formic acid, CH2O2",kg,2.51,
+Reagent,Chemical,CH3OH,"Methyl alcohol, CH3OH",kg,0.66,50%
+Reagent,Chemical,CHCl3,"Trichloromethane, CHCl3",kg,4.13,
+Reagent,Chemical,Cl,"Chlorine, liquid, Cl",kg,1.08,
+Reagent,Chemical,ClO2,"Chlorine dioxide, ClO2",kg,6.33,
+Reagent,Chemical,CO,"Carbon monoxide, CO",kg,1.57,
+Reagent,Chemical,CO2,"Carbon dioxide liquid, CO2",kg,0.82,
+Reagent,Chemical,Cu2O,"Copper oxide, Cu2O",kg,2.07,
+Reagent,Chemical,CuCO3,"Copper carbonate, CuCO3",kg,2.00,
+Reagent,Chemical,F,"Fluorine, liquid, F",kg,11.40,
+Reagent,Chemical,FeCl3,"Iron (II) chloride, 40% in H2O, FeCl3",kg,0.18,
+Reagent,Chemical,H,"Hydrogen, liquid, H",kg,1.63,
+Reagent,Chemical,H2O2,"Hydrogen peroxide, 50% in H2O, H2O2",kg,1.14,
+Reagent,Chemical,H2SiF6,"Fluosilisic acid, 22% in H2O, H2SiF6",kg,0.97,
+Reagent,Chemical,H2SO4,"Sulphuric acid, H2SO4",kg,0.14,50%
+Reagent,Chemical,H3BO3,"Boric acid, anhydrous, powder, H3BO3",kg,0.72,
+Reagent,Chemical,H3PO4,"Phosphoric acid, industrial grade, 85% in H20, H3PO4",kg,1.45,50%
+Reagent,Chemical,HCl,"Hydrochloric acid, 30% in H2O, HCl",kg,1.20,50%
+Reagent,Chemical,HCl,"Hydrochloric acid, HCl",kg,0.89,
+Reagent,Chemical,HCN,"Hydrogen cyanide, HCN",kg,7.06,
+Reagent,Chemical,HF,"Hydrogen fluoride, HF",kg,2.82,
+Reagent,Chemical,HNO3,"Nitric acid production - Atmospheric pressure plants (low pressure), HNO3",kg,1.55,
+Reagent,Chemical,HNO3,"Nitric acid production - High pressure plant, HNO3",kg,2.79,
+Reagent,Chemical,HNO3,"Nitric acid production - Medium pressure combustion plant, HNO3",kg,2.17,
+Reagent,Chemical,HNO3,"Nitric acid, 50 % in H2O, HNO3",kg,3.18,
+Reagent,Chemical,Inorganic,Carbon black,kg,2.38,
+Reagent,Chemical,Inorganic,Silicone product,kg,2.67,
+Reagent,Chemical,K2CO3,"Potassium carbonate, K2CO3",kg,2.38,
+Reagent,Chemical,K2O,"Potassium carbonate, by ton of K2O",kg,0.69,30%
+Reagent,Chemical,KClO4,"Potassium perchlorate, KClO4",kg,5.09,
+Reagent,Chemical,KOH,"Potassium hydroxide, KOH",kg,1.94,
+Reagent,Chemical,MgO,"Magnesium oxide, MgO",kg,1.06,
+Reagent,Chemical,MgSO4,"Magnesium sulphate, MgSO4",kg,0.30,
+Reagent,Chemical,N,"Nitrogen, liquid",kg,0.43,
+Reagent,Chemical,Na2B4O7·10H2O,"Borax, anhydrous, powder",kg,1.65,
+Reagent,Chemical,Na2CO3,"Sodium carbonate (caustic soda), 50%, Na2CO3",kg,0.59,50%
+Reagent,Chemical,Na2Si3O7,"Sodium silicate at 48%, Na2Si3O7",kg,0.71,0%
+Reagent,Chemical,Na2SiO3,"Sodium silicate, spray powder 80%, Na2SiO3",kg,1.64,
+Reagent,Chemical,Na2SO4,"Sodium sulphate, powder, Na2SiO3",kg,0.47,
+Reagent,Chemical,NaCl,"Sodium chloride, powder, NaCl",kg,0.20,
+Reagent,Chemical,NaClO,"Sodium hypochlorite, 15% in H2O, NaClO",kg,0.92,
+Reagent,Chemical,NaClO3,"Sodium chlorate, powder, NaClO3",kg,3.23,
+Reagent,Chemical,NaHCO3,"Bicarbonate of soda, NaHCO3",kg,1.17,0%
+Reagent,Chemical,NaHSO3,"Sodium bisulfite, NaHSO3",kg,0.44,0%
+Reagent,Chemical,NaOH,"Soda, powder, NaOH",kg,0.46,
+Reagent,Chemical,NaOH,"Sodium hydroxide, 50% in H2O, production mix, NaOH",kg,1.12,
+Reagent,Chemical,NH3,"Ammonia, liquid, NH3",kg,2.11,
+Reagent,Chemical,NH4Cl,"Ammonium chloride, NH4Cl",kg,1.18,
+Reagent,Chemical,NH4HCO3,"Ammonium bicarbonate, NH4HCO3",kg,1.20,
+Reagent,Chemical,NH4NO3,"Ammonium nitrate (NH4NO3), by ton of nitrogen",kg,4.09,30%
+Reagent,Chemical,O2,"Oxygen, liquid",kg,0.41,
+Reagent,Chemical,O3,"Ozone, liquid",kg,8.01,
+Reagent,Chemical,Organic,Lubricating oil,kg,1.07,
+Reagent,Chemical,Organic,Palm oil,kg,2.93,
+Reagent,Chemical,Organic,Soya oil,kg,1.70,
+Reagent,Chemical,Other,Other chemical,kg,3.00,50%
+Reagent,Chemical,Other,Soap,kg,1.75,
+Reagent,Chemical,PCl3,"Phosphorous chloride, PCl3",kg,3.39,
+Reagent,Chemical,SF6,"Sulphur hexafluoride, liquid, SF6",kg,120.00,
+Reagent,Chemical,SO2,"Sulphur dioxide, liquid, SO2",kg,0.44,
+Reagent,Chemical,Solvent,White spirit,kg,0.95,
+Reagent,Chemical,ZnO,"Zinc oxide, ZnO",kg,2.91,
+Reagent,Chemical,ZnS,"Zinc sulphide, ZnS",kg,4.18,
+Reagent,Chemical,ZrO2,"Zirconium oxide, ZrO2",kg,4.05,
+Reagent,Other,Activated carbon,AC coconut prod.,kg,1.43,
+Reagent,Other,Activated carbon,AC coconut reac.,kg,0.65,
+Reagent,Other,Activated carbon,AC mineral prod.,kg,5.27,
+Reagent,Other,Activated carbon,AC mineral reac.,kg,2.46,
+Reagent,Other,Activated carbon,AC mineral renew.,kg,8.38,
+Reagent,Other,Activated carbon,AC wood prod.,kg,2.61,
+Reagent,Other,Biocide,Biocide,kg,3.73,0%
+Reagent,Other,CaCO3,Lime stone,kg,0.01,0%
+Reagent,Other,CaO,Lime CaO,kg,0.15,50%
+Reagent,Other,Fertilizer,Nitrogen,kg,4.62,30%
+Reagent,Other,Fertilizer,Phosphorous,kg,2.70,0%
+Reagent,Other,Other,Membrane cleaning,kg,3.99,0%
+Reagent,Other,Polymer,Polymer,kg,2.20,0%
+Reagent,Other,Resin,Resin prod. & activ. (kg),kg,3.67,
+Reagent,Other,Resin,Resin prod. & activ. (m3),m3,"3116.67",
+Reagent,Other,Resin,Resin regener. (kg),kg,0.53,
+Reagent,Other,Resin,Resin regener. (m3),m3,447.33,
+Reagent,Other,Sand,Microsand,kg,0.11,
+Reagent,Other,TSP,STP,kg,5.81,0%
+Transport,Freight,Air,AF ave. (km),km,2.10,20%
+Transport,Freight,Air,AF long (km),km,1.20,20%
+Transport,Freight,Air,AF long (t.km),t.km,0.57,
+Transport,Freight,Air,AF short (km),km,3.36,20%
+Transport,Freight,Air,AF short (t.km),t.km,1.58,
+Transport,Freight,Air,Air freight average (km),km,2.22,20%
+Transport,Freight,Air,Air freight average (t.km),t.km,1.30,0%
+Transport,Freight,Rail,Rail freight,t.km,0.03,
+Transport,Freight,Rail,Train EU,t.km,0.02,50%
+Transport,Freight,Road,RF bulk large,t.km,0.01,
+Transport,Freight,Road,RF bulk small,t.km,0.01,
+Transport,Freight,Road,RF roro large,t.km,0.02,
+Transport,Freight,Road,RF roro small,t.km,0.06,
+Transport,Freight,Road,RF tanker large,t.km,0.00,
+Transport,Freight,Road,RF tanker small,t.km,0.04,
+Transport,Freight,Road,RF truck 20t 1/2full,t.km,0.82,9%
+Transport,Freight,Road,RF truck 20t 1/4full,t.km,1.52,9%
+Transport,Freight,Road,RF truck 20t 3/4full,t.km,0.59,9%
+Transport,Freight,Road,RF truck 20t full,t.km,0.47,9%
+Transport,Freight,Road,RF truck 35t 1/2full,t.km,0.44,11%
+Transport,Freight,Road,RF truck 35t 1/4full,t.km,0.81,11%
+Transport,Freight,Road,RF truck 35t 3/4full,t.km,0.31,11%
+Transport,Freight,Road,RF truck 35t full,t.km,0.25,11%
+Transport,Freight,Road,Road freight average (km),km,1.11,11%
+Transport,Freight,Road,Road freight average (t.km),t.km,0.70,11%
+Transport,Freight,Water,SF transoceanic,t.km,0.01,
+Transport,Freight,Water,Ship freight,t.km,0.01,20%
+Transport,Trip,Air,Air trip average,km,0.49,20%
+Transport,Trip,Air,AT long,km,0.19,20%
+Transport,Trip,Air,AT long 1st,km,0.78,20%
+Transport,Trip,Air,AT long 2nd,km,0.16,20%
+Transport,Trip,Air,AT long bus.,km,0.81,20%
+Transport,Trip,Air,AT short,km,0.24,20%
+Transport,Trip,Air,AT short 2nd,km,0.19,20%
+Transport,Trip,Air,AT short bus.,km,0.80,20%
+Transport,Trip,Rail,Train trip,km,0.06,
+Transport,Trip,Road,Road trip,km,0.21,
+Transport,Trip,Road,Road trip average,km,0.19,20%
+Transport,Trip,Road,RT diesel large,km,0.26,
+Transport,Trip,Road,RT diesel medium,km,0.19,
+Transport,Trip,Road,RT diesel small,km,0.15,
+Transport,Trip,Road,RT hybrid large,km,0.22,
+Transport,Trip,Road,RT hybrid medium,km,0.13,
+Transport,Trip,Road,RT petrol large,km,0.30,
+Transport,Trip,Road,RT petrol medium,km,0.22,
+Transport,Trip,Road,RT petrol small,km,0.18,
