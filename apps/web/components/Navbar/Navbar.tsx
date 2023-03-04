@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import s from './Navbar.module.css';
 
@@ -11,6 +12,8 @@ const Navbar = () => {
   const supabaseClient = useSupabaseClient();
   const { user } = useUser();
 
+  const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
+
   return (
     <nav className={s.root}>
       <a href="#skip" className="sr-only focus:not-sr-only">
@@ -22,34 +25,102 @@ const Navbar = () => {
             <Link href="/" className={s.logo} aria-label="Logo">
               <Logo />
             </Link>
-            <nav className="space-x-2 ml-6 hidden lg:block">
-              <Link href="/" className={s.link}>
-                Pricing
-              </Link>
-              <Link href="/account" className={s.link}>
-                Account
-              </Link>
-            </nav>
           </div>
 
-          <div className="flex flex-1 justify-end space-x-8">
-            {user ? (
-              <span
-                className={s.link}
-                onClick={async () => {
-                  await supabaseClient.auth.signOut();
-                  router.push('/signin');
-                }}
+          <div className="md:hidden flex items-center">
+            <button
+              className="outline-none mobile-menu-button"
+              onClick={() => setMobileMenuOpened(!mobileMenuOpened)}
+            >
+              <svg
+                className="w-10 h-10 text-gray-500"
+                x-show="!showMenu"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                Sign out
-              </span>
-            ) : (
-              <Link href="/signin" className={s.link}>
-                Sign in
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div className="hidden md:flex flex-1 justify-end space-x-8">
+            <nav className="space-x-4 p-2 lg:block">
+              <Link
+                href="/"
+                className={`${s.link} text-carbon-gold border-solid border-carbon-bronze`}
+              >
+                <button
+                  type="button"
+                  className="bg-carbon-bronze rounded-full p-4"
+                >
+                  Act Now
+                </button>
               </Link>
-            )}
+              <Link href="/account" className={`${s.link} text-carbon-bronze`}>
+                Charities
+              </Link>
+              {user ? (
+                <span
+                  className={`${s.link} text-carbon-bronze`}
+                  onClick={async () => {
+                    await supabaseClient.auth.signOut();
+                    router.push('/signin');
+                  }}
+                >
+                  Sign out
+                </span>
+              ) : (
+                <Link href="/signin" className={`${s.link} text-carbon-bronze`}>
+                  Sign in
+                </Link>
+              )}
+            </nav>
           </div>
         </div>
+      </div>
+      <div
+        className={`${
+          mobileMenuOpened ? 'block' : 'hidden'
+        } bg-carbon-gold w-screen`}
+      >
+        <nav className="flex flex-col">
+          <Link
+            href="/account"
+            className={`${s.link} text-carbon-bronze border-y border-carbon-bronze`}
+          >
+            Charities
+          </Link>
+          {user ? (
+            <span
+              className={`${s.link} text-carbon-bronze`}
+              onClick={async () => {
+                await supabaseClient.auth.signOut();
+                router.push('/signin');
+              }}
+            >
+              Sign out
+            </span>
+          ) : (
+            <Link
+              href="/signin"
+              className={`${s.link} rounded-none text-carbon-bronze border-carbon-bronze`}
+            >
+              Sign in
+            </Link>
+          )}
+          <Link
+            href="/"
+            className="text-carbon-gold border-solid border-carbon-bronze"
+          >
+            <button type="button" className="bg-carbon-bronze p-2 w-full">
+              Act Now
+            </button>
+          </Link>
+        </nav>
       </div>
     </nav>
   );

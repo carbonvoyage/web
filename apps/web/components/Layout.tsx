@@ -31,6 +31,10 @@ export default function Layout({ children, meta: pageMeta }: Props) {
           property="og:url"
           content={`https://carbonvoyage.org${router.asPath}`}
         />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        ></meta>
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={meta.title} />
         <meta property="og:description" content={meta.description} />
