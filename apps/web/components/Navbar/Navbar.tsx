@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import s from './Navbar.module.css';
 
-import { Logo } from 'icons';
+import { Logo, Hamburger } from 'icons';
 import { useRouter } from 'next/router';
 import { useUser } from 'utils/useUser';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
@@ -27,27 +27,16 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               className="outline-none mobile-menu-button"
               onClick={() => setMobileMenuOpened(!mobileMenuOpened)}
             >
-              <svg
-                className="w-10 h-10 text-gray-500"
-                x-show="!showMenu"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
+              <Hamburger className="w-10 h-10" />
             </button>
           </div>
 
-          <div className="hidden md:flex flex-1 justify-end space-x-8">
+          <div className="hidden lg:flex flex-1 justify-end space-x-8">
             <nav className="space-x-4 p-2 lg:block">
               <Link
                 href="/"

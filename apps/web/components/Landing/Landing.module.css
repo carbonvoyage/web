@@ -10,8 +10,17 @@
     background-size: 100% auto;
   }
 }
-@media only screen and (min-width: 768px) {
+
+@media only screen and (min-width: 1024px) {
   .hero {
     min-height: 900px;
   }
+}
+
+.steps h3 {
+  @apply text-2xl lg:text-3xl font-semibold tracking-wide py-4;
+}
+
+.steps p {
+  @apply text-lg lg:text-xl xl:text-2xl mb-8;
 }

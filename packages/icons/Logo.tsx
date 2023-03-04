@@ -3,7 +3,8 @@ const Logo = ({ className = "", ...props }) => (
     width="50"
     height="49"
     viewBox="0 0 50 49"
-    fill="none"
+    fill="current"
+    stroke="current"
     xmlns="http://www.w3.org/2000/svg"
     className={className}
     {...props}
