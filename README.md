@@ -8,14 +8,16 @@ This turborepo uses [pnpm](https://pnpm.io/) as a package manager. It includes t
 
 ### Apps and Packages
 
-- `extension`: a React app that is the Chrome/Firefox extension
-- `web`: a [Next.js](https://nextjs.org) app, which is the main web application
-  - `api`: a [Next.js API route](https://nextjs.org/docs/api-routes/introduction) for the `web` application
-  - This app is deployed to [Vercel](https://vercel.com/)
-  - This app leverages [Supabase](https://supabase.io/) for its database/authentication and [Stripe](https://stripe.com/) for its payment processing
-- `ui`: a stub React component library shared by both the `extension` and `web` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+-   `data`: a [Flask](https://flask.palletsprojects.com/en/2.0.x/) app, which is the backend API
+    -   This app is deployed to [Render](https://render.com/)
+-   `extension`: a React app that is the Chrome/Firefox extension
+-   `web`: a [Next.js](https://nextjs.org) app, which is the main web application
+    -   `api`: a [Next.js API route](https://nextjs.org/docs/api-routes/introduction) for the `web` application
+    -   This app is deployed to [Vercel](https://vercel.com/)
+    -   This app leverages [Supabase](https://supabase.io/) for its database/authentication and [Stripe](https://stripe.com/) for its payment processing
+-   `ui`: a stub React component library shared by both the `extension` and `web` applications
+-   `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+-   `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
@@ -23,11 +25,11 @@ Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
 This turborepo has some additional tools already setup for you:
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+-   [TypeScript](https://www.typescriptlang.org/) for static type checking
+-   [ESLint](https://eslint.org/) for code linting
+-   [Prettier](https://prettier.io) for code formatting
 
-### Getting Started
+## Getting Started
 
 Use [nvm](https://github.com/nvm-sh/nvm) to install Node.js v16.18.1 and [pnpm](https://pnpm.io/) to install the dependencies:
 
@@ -83,30 +85,30 @@ npx turbo link
 
 ## Useful Links
 
-- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
-- [Caching](https://turborepo.org/docs/core-concepts/caching)
-- [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
+-   [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
+-   [Caching](https://turborepo.org/docs/core-concepts/caching)
+-   [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
+-   [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
+-   [Configuration Options](https://turborepo.org/docs/reference/configuration)
+-   [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
 
 ## Credits
 
 Core technologies, libraries, and tools used in this project:
 
-- [Turborepo](https://turborepo.org/)
-- [Next.js](https://nextjs.org/)
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io)
-- [pnpm](https://pnpm.io/)
-- [Vercel](https://vercel.com/)
-- [Supabase](https://supabase.io/)
-- [Stripe](https://stripe.com/)
+-   [Turborepo](https://turborepo.org/)
+-   [Next.js](https://nextjs.org/)
+-   [React](https://reactjs.org/)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [ESLint](https://eslint.org/)
+-   [Prettier](https://prettier.io)
+-   [pnpm](https://pnpm.io/)
+-   [Vercel](https://vercel.com/)
+-   [Supabase](https://supabase.io/)
+-   [Stripe](https://stripe.com/)
 
 Templates used as the basis for this project:
 
-- [Turborepo Starter](https://github.com/vercel/turbo/tree/main/examples/basic)
-- [React Typescript Web Extension Starter](https://github.com/aeksco/react-typescript-web-extension-starter)
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
+-   [Turborepo Starter](https://github.com/vercel/turbo/tree/main/examples/basic)
+-   [React Typescript Web Extension Starter](https://github.com/aeksco/react-typescript-web-extension-starter)
+-   [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
