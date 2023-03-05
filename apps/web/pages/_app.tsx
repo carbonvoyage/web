@@ -10,7 +10,7 @@ import { AppProps } from 'next/app';
 import { MyUserContextProvider } from 'utils/useUser';
 import type { Database } from 'types_db';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   const [supabaseClient] = useState(() =>
     createBrowserSupabaseClient<Database>()
   );
@@ -19,14 +19,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <div className="bg-black">
-      <SessionContextProvider supabaseClient={supabaseClient}>
-        <MyUserContextProvider>
+    <SessionContextProvider supabaseClient={supabaseClient}>
+      <MyUserContextProvider>
+        {['/'].includes(appProps.router.pathname) ? (
+          <Component {...pageProps} />
+        ) : (
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </MyUserContextProvider>
-      </SessionContextProvider>
-    </div>
+        )}
+      </MyUserContextProvider>
+    </SessionContextProvider>
   );
 }

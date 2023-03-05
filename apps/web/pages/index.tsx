@@ -1,4 +1,4 @@
-import Pricing from 'components/Pricing';
+import Landing from '@/components/Landing';
 import { getActiveProductsWithPrices } from 'utils/supabase-client';
 import { Product } from 'types';
 import { GetStaticPropsResult } from 'next';
@@ -7,8 +7,12 @@ interface Props {
   products: Product[];
 }
 
-export default function PricingPage({ products }: Props) {
-  return <Pricing products={products} />;
+// export default function PricingPage({ products }: Props) {
+//   return <Pricing products={products} />;
+// }
+
+export default function LandingPage() {
+  return <Landing />;
 }
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {

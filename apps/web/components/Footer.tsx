@@ -4,94 +4,57 @@ import { Logo, GitHub } from 'icons';
 
 export default function Footer() {
   return (
-    <footer className="mx-auto max-w-[1920px] px-6 bg-zinc-900">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-zinc-600 py-12 text-white transition-colors duration-150 bg-zinc-900">
-        <div className="col-span-1 lg:col-span-2">
-          <Link
-            href="/"
-            className="flex flex-initial items-center font-bold md:mr-24"
-          >
-            <span className="rounded-full border border-zinc-700 mr-2">
-              <Logo />
-            </span>
-            <span>ACME</span>
-          </Link>
-        </div>
-        <div className="col-span-1 lg:col-span-2">
-          <ul className="flex flex-initial flex-col md:flex-1">
-            <li className="py-3 md:py-0 md:pb-4">
+    <footer className="mt-24 mx-auto max-w-[1920px] py-8 md:p-8 bg-carbon-bronze">
+      <div className="flex flex-col gap-6 items-center text-carbon-gold bg-carbon-bronze">
+        <div className="text-lg sm:text-xl">
+          <ul className="flex flex-wrap justify-center text-center">
+            <li className="px-3 sm:px-5">
               <Link
                 href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
+                className=" hover:text-zinc-200 transition ease-in-out duration-150"
               >
                 Home
               </Link>
             </li>
-            <li className="py-3 md:py-0 md:pb-4">
+            <li className="px-3 sm:px-5">
               <Link
                 href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
+                className=" hover:text-zinc-200 transition ease-in-out duration-150"
               >
-                About
+                Contribute
               </Link>
             </li>
-            <li className="py-3 md:py-0 md:pb-4">
+            <li className="px-3 sm:px-5">
               <Link
                 href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
+                className=" hover:text-zinc-200 transition ease-in-out duration-150"
               >
-                Careers
+                News
               </Link>
             </li>
-            <li className="py-3 md:py-0 md:pb-4">
+            <li className="px-3 sm:px-5">
               <Link
                 href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
+                className=" hover:text-zinc-200 transition ease-in-out duration-150"
               >
-                Blog
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="col-span-1 lg:col-span-2">
-          <ul className="flex flex-initial flex-col md:flex-1">
-            <li className="py-3 md:py-0 md:pb-4">
-              <p className="text-white font-bold hover:text-zinc-200 transition ease-in-out duration-150">
-                LEGAL
-              </p>
-            </li>
-            <li className="py-3 md:py-0 md:pb-4">
-              <Link
-                href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
-              >
-                Privacy Policy
-              </Link>
-            </li>
-            <li className="py-3 md:py-0 md:pb-4">
-              <Link
-                href="/"
-                className="text-white hover:text-zinc-200 transition ease-in-out duration-150"
-              >
-                Terms of Use
+                Contact
               </Link>
             </li>
           </ul>
         </div>
-        <div className="col-span-1 lg:col-span-6 flex items-start lg:justify-end text-white">
-          <div className="flex space-x-6 items-center h-10">
-            <a
-              aria-label="Github Repository"
-              href="https://github.com/vercel/nextjs-subscription-payments"
-            >
-              <GitHub />
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="py-12 flex flex-col md:flex-row justify-between items-center space-y-4 bg-zinc-900">
         <div>
-          <span>&copy; 2020 ACME, Inc. All rights reserved.</span>
+          <GitHub />
+        </div>
+        <div>
+          <Link
+            href="/"
+            className="flex flex-initial items-center font-semibold"
+          >
+            <span className="mr-2">
+              <Logo className="stroke-carbon-gold" />
+            </span>
+            <span className="text-2xl">Carbon Voyage</span>
+          </Link>
         </div>
       </div>
     </footer>
