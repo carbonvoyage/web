@@ -1,5 +1,9 @@
 module.exports = {
   theme: {
+    fontFamily: {
+      display: ['bookman-jf-pro', 'serif'],
+      body: ['apolline', 'serif']
+    },
     extend: {
       colors: {
         'carbon-bronze': '#7D671F',

@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: 'apolline', serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+
 *,
 *:before,
 *:after {
@@ -21,11 +29,9 @@ html {
 
 html,
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', sans-serif;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  @apply text-white bg-carbon-gold antialiased;
+  @apply text-carbon-bronze bg-carbon-gold antialiased;
 }
 
 body {
