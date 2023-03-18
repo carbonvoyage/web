@@ -21,13 +21,10 @@ export default function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   return (
     <SessionContextProvider supabaseClient={supabaseClient}>
       <MyUserContextProvider>
-        {['/'].includes(appProps.router.pathname) ? (
+        {/* TODO: Use ['/'].includes(appProps.router.pathname) to update layout for landing page  */}
+        <Layout>
           <Component {...pageProps} />
-        ) : (
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        )}
+        </Layout>
       </MyUserContextProvider>
     </SessionContextProvider>
   );

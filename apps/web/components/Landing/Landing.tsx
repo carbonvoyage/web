@@ -7,11 +7,9 @@ import Footer from '../Footer';
 const Landing = () => {
   return (
     <>
-      <Navbar />
       <Hero />
       <Rundown />
       <News />
-      <Footer />
     </>
   );
 };
