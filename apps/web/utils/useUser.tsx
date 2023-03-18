@@ -52,9 +52,13 @@ export const MyUserContextProvider = (props: Props) => {
           const subscriptionPromise = results[1];
 
           if (userDetailsPromise.status === 'fulfilled')
+            // TODO: Fix this ts-ignore
+            // @ts-ignore
             setUserDetails(userDetailsPromise.value.data);
 
           if (subscriptionPromise.status === 'fulfilled')
+            // TODO: Fix this ts-ignore
+            // @ts-ignore
             setSubscription(subscriptionPromise.value.data);
 
           setIsloadingData(false);
@@ -64,6 +68,7 @@ export const MyUserContextProvider = (props: Props) => {
       setUserDetails(null);
       setSubscription(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, isLoadingUser]);
 
   const value = {

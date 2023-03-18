@@ -4,7 +4,8 @@ import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { LoadingDots } from 'ui';
 import { Logo } from 'icons';
 import { getURL } from '@/utils/helpers';
-import { Auth, ThemeSupa } from '@supabase/auth-ui-react';
+import { Auth } from '@supabase/auth-ui-react';
+import { ThemeSupa } from '@supabase/auth-ui-shared';
 
 const SignIn = () => {
   const router = useRouter();
