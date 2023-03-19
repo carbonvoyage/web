@@ -1,9 +1,0 @@
-{
-    "name": "data",
-    "version": "0.0.0",
-    "license": "MIT",
-    "main": "app.py",
-    "scripts": {
-        "dev": "env FLASK_DEBUG=true flask run"
-    }
-}
