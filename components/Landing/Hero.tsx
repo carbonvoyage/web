@@ -17,7 +17,7 @@ export default function Hero() {
             type="button"
             className="bg-carbon-bronze text-carbon-gold rounded-2xl py-3 px-5 mt-6"
           >
-            Get Started
+            Get started
           </button>
         </div>
       </div>

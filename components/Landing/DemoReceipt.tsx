@@ -24,7 +24,9 @@ const DemoReceipt = () => {
               <Logo className="p-1" fill="black" />
               <div>
                 <h1 className="text-xl">Carbon Offset Receipt</h1>
-                <h3 className="text-neutral-400 -mt-1">Amazon.com, 3-18-23</h3>
+                <h2 className="text-neutral-500 -mt-1">
+                  Amazon.com <span>·</span> 3-18-23
+                </h2>
               </div>
             </div>
             <div className="pt-4">
@@ -79,14 +81,17 @@ const DemoReceipt = () => {
                   </tr>
                 </tbody>
               </table>
-              <p className="text-neutral-400 text-xs text-center mt-2 -mb-4">
+              <p className="text-neutral-500 text-xs text-center mt-2 -mb-4">
                 * This is an example receipt. Offset calculations are not
                 representative of actual calculations.
               </p>
             </div>
           </div>
           <Barcode className="w-full p-1" />
-          <p className="absolute text-neutral-500/10 text-3xl top-0 right-0 translate-y-52 translate-x-14 rotate-90">
+          <p
+            aria-hidden="true"
+            className="absolute text-neutral-500/10 text-3xl top-0 right-0 translate-y-52 translate-x-14 rotate-90"
+          >
             001800032023
           </p>
         </div>

@@ -1,4 +1,10 @@
-import { useEffect, useState, FunctionComponent } from 'react';
+import {
+  useEffect,
+  useState,
+  FunctionComponent,
+  Dispatch,
+  SetStateAction
+} from 'react';
 import Link from 'next/link';
 
 import { Logo, Hamburger } from 'assets/icons';
@@ -7,6 +13,10 @@ import { useUser } from 'utils/useUser';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 type Props = {
+  setIsAuthModalOpen: Dispatch<SetStateAction<boolean>>;
+  setAuthView: Dispatch<
+    SetStateAction<'sign_in' | 'sign_up' | 'forgotten_password' | undefined>
+  >;
   minimal?: boolean;
   links?: {
     name: string;
@@ -18,7 +28,12 @@ type Props = {
 // Minimal prop is used to hide the "Carbon Voyage" text in the navbar
 // Links prop is used to pass in custom links to the navbar,
 // replacing the default links.
-const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
+const Navbar: FunctionComponent<Props> = ({
+  setIsAuthModalOpen,
+  setAuthView,
+  minimal = false,
+  links
+}) => {
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
   const { user } = useUser();
@@ -120,24 +135,30 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
                     router.push('/signin');
                   }}
                 >
-                  Sign Out
+                  Sign out
                 </span>
               ) : (
                 <>
-                  <Link
-                    className="hover:underline decoration-wavy"
-                    href="/signin"
+                  <a
+                    className="hover:underline decoration-wavy cursor-pointer"
+                    onClick={() => {
+                      setIsAuthModalOpen(true), setAuthView('sign_in');
+                    }}
                   >
-                    Sign In
-                  </Link>
-                  <Link href="/">
+                    Sign in
+                  </a>
+                  <a
+                    onClick={() => {
+                      setIsAuthModalOpen(true), setAuthView('sign_up');
+                    }}
+                  >
                     <button
                       type="button"
                       className="text-carbon-gold bg-carbon-bronze rounded-xl py-2 px-4"
                     >
-                      Sign Up
+                      Sign up
                     </button>
-                  </Link>
+                  </a>
                 </>
               )}
             </nav>
