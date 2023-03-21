@@ -1,22 +1,13 @@
-import {
-  useEffect,
-  useState,
-  FunctionComponent,
-  Dispatch,
-  SetStateAction
-} from 'react';
+import { useEffect, useState, FunctionComponent } from 'react';
 import Link from 'next/link';
 
 import { Logo, Hamburger } from 'assets/icons';
+import { useAuthModalContext } from '@/context/authModalContext';
 import { useRouter } from 'next/router';
 import { useUser } from 'utils/useUser';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 
 type Props = {
-  setIsAuthModalOpen: Dispatch<SetStateAction<boolean>>;
-  setAuthView: Dispatch<
-    SetStateAction<'sign_in' | 'sign_up' | 'forgotten_password' | undefined>
-  >;
   minimal?: boolean;
   links?: {
     name: string;
@@ -28,16 +19,13 @@ type Props = {
 // Minimal prop is used to hide the "Carbon Voyage" text in the navbar
 // Links prop is used to pass in custom links to the navbar,
 // replacing the default links.
-const Navbar: FunctionComponent<Props> = ({
-  setIsAuthModalOpen,
-  setAuthView,
-  minimal = false,
-  links
-}) => {
+const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
   const { user } = useUser();
   const [blurBackground, setBlurBackground] = useState(false);
+  const [isOpen, setIsAuthModalOpen, view, setAuthModalView] =
+    useAuthModalContext();
 
   // Default links if none are passed in
   const defaultLinks = [
@@ -142,14 +130,14 @@ const Navbar: FunctionComponent<Props> = ({
                   <a
                     className="hover:underline decoration-wavy cursor-pointer"
                     onClick={() => {
-                      setIsAuthModalOpen(true), setAuthView('sign_in');
+                      setIsAuthModalOpen(true), setAuthModalView('sign_in');
                     }}
                   >
                     Sign in
                   </a>
                   <a
                     onClick={() => {
-                      setIsAuthModalOpen(true), setAuthView('sign_up');
+                      setIsAuthModalOpen(true), setAuthModalView('sign_up');
                     }}
                   >
                     <button

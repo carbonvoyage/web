@@ -8,12 +8,14 @@ import { SessionContextProvider } from '@supabase/auth-helpers-react';
 import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { AppProps } from 'next/app';
 import { MyUserContextProvider } from 'utils/useUser';
+import { AuthModalProvider } from 'context/authModalContext';
 import type { Database } from 'types_db';
 
 export default function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   const [supabaseClient] = useState(() =>
     createBrowserSupabaseClient<Database>()
   );
+
   useEffect(() => {
     document.body.classList?.remove('loading');
   }, []);
@@ -21,10 +23,12 @@ export default function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   return (
     <SessionContextProvider supabaseClient={supabaseClient}>
       <MyUserContextProvider>
-        {/* TODO: Use ['/'].includes(appProps.router.pathname) to update layout for landing page  */}
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <AuthModalProvider>
+          {/* TODO: Use ['/'].includes(appProps.router.pathname) to update layout for landing page  */}
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </AuthModalProvider>
       </MyUserContextProvider>
     </SessionContextProvider>
   );
