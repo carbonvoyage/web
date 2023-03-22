@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
-import Navbar from 'components/Navbar';
-import AuthModal from './AuthModal';
-import Footer from 'components/Footer';
 import { ReactNode } from 'react';
-import { PageMeta } from '../types';
+
+import AuthModal from '@components/AuthModal';
+import Footer from '@components/Footer';
+import Navbar from '@components/Navbar';
+
+import { PageMeta } from 'types';
 
 interface Props {
   children: ReactNode;

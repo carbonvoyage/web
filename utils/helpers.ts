@@ -1,5 +1,3 @@
-import { Price } from 'types';
-
 export const getURL = () => {
   let url =
     process?.env?.NEXT_PUBLIC_SITE_URL ?? // Set this to your site URL in production env.
@@ -12,13 +10,7 @@ export const getURL = () => {
   return url;
 };
 
-export const postData = async ({
-  url,
-  data
-}: {
-  url: string;
-  data?: { price: Price };
-}) => {
+export const postData = async ({ url, data }: { url: string; data?: any }) => {
   console.log('posting,', url, data);
 
   const res: Response = await fetch(url, {

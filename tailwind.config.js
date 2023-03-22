@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors: {
         'carbon-bronze': '#7D671F',
-        'carbon-gold': '#FFF0AD'
+        'carbon-gold': '#FFF0AD',
+        'carbon-light': '#e5d391'
       },
       backgroundImage: {
         hero: "url('/hero-banner.png')"

@@ -1,12 +1,11 @@
-import { Logo } from 'assets/icons';
-import s from './Landing.module.css';
+import { Logo } from '@assets/icons';
 
 export default function Rundown() {
   return (
     <section className="mx-auto max-w-screen-2xl">
       <div className="bg-carbon-gold flex flex-col lg:flex-row items-center px-8 py-2 lg:py-8">
         <div
-          className={`${s.steps} text-carbon-bronze basis-1/2 text-center lg:text-left leading-8`}
+          className={`text-carbon-bronze basis-1/2 text-center lg:text-left leading-8`}
         >
           <h1 className="mt-8 text-3xl lg:text-5xl font-bold">How It Works</h1>
           <h2 className="mb-8 text-xl lg:text-3xl font-semibold">

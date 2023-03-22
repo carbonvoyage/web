@@ -1,9 +1,11 @@
-import DemoReceipt from './DemoReceipt';
-import { useAuthModalContext } from '@/context/authModalContext';
+import Button from '@components/Button';
+
+import { useAuthModal } from '@context/useAuthModal';
+
+import Receipt from './Receipt';
 
 export default function Hero() {
-  const [isOpen, setIsAuthModalOpen, view, setAuthModalView] =
-    useAuthModalContext();
+  const [_isOpen, setIsAuthModalOpen, _view, setAuthModalView] = useAuthModal();
 
   return (
     <section className="mx-auto max-w-2xl lg:max-w-6xl h-screen flex flex-col lg:flex-row items-center px-8 py-2 md:py-8">
@@ -17,19 +19,19 @@ export default function Hero() {
             online purchases. Quickly discover the carbon produced by your cart,
             and offset it with a single click.
           </p>
-          <button
-            type="button"
-            className="bg-carbon-bronze text-carbon-gold rounded-2xl py-3 px-5 mt-6"
+          <Button
+            size="large"
+            className="mt-4"
             onClick={() => {
               setIsAuthModalOpen(true), setAuthModalView('sign_up');
             }}
           >
             Get started
-          </button>
+          </Button>
         </div>
       </div>
       <div className="basis-1/2">
-        <DemoReceipt />
+        <Receipt />
       </div>
     </section>
   );

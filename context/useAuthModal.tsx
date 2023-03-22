@@ -1,10 +1,10 @@
 import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
   createContext,
   useContext,
-  useState,
-  ReactNode,
-  Dispatch,
-  SetStateAction
+  useState
 } from 'react';
 
 type View = 'sign_in' | 'sign_up' | 'forgotten_password' | undefined;
@@ -33,6 +33,6 @@ export function AuthModalProvider({ children }: Props) {
   );
 }
 
-export function useAuthModalContext() {
+export function useAuthModal() {
   return useContext(Context);
 }

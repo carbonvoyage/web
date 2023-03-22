@@ -1,0 +1,17 @@
+{
+  "arrowParens": "always",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "none",
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)|^(next/(.*)$)|^(next$)",
+    "<THIRD_PARTY_MODULES>",
+    "^@components/(.*)$",
+    "^@utils/(.*)$|^@context/(.*)$",
+    "^types$|^types_db$",
+    "^@styles/(.*)$|^@assets/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}

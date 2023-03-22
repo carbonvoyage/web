@@ -1,15 +1,20 @@
 import { useRouter } from 'next/router';
-import { useEffect, FunctionComponent } from 'react';
-import { Dialog } from '@headlessui/react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { FunctionComponent, useEffect, useState } from 'react';
 
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
-import { getURL } from '@/utils/helpers';
+import { Dialog } from '@headlessui/react';
+import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react';
 import { Auth } from '@supabase/auth-ui-react';
 import { Theme } from '@supabase/auth-ui-shared';
-import Close from 'assets/icons/Close';
-import { useAuthModalContext } from '@/context/authModalContext';
+import { AnimatePresence, motion } from 'framer-motion';
 
+import Button from '@components/Button';
+
+import { useAuthModal } from '@context/useAuthModal';
+import { getURL } from '@utils/helpers';
+
+import { Apple, Close, GitHub, Google, Notion } from '@assets/icons';
+
+// Supabase Auth UI Theme
 const customTheme: Theme = {
   default: {
     colors: {
@@ -68,11 +73,51 @@ const customTheme: Theme = {
   }
 };
 
+// Framer Motion Variants
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      transition: { staggerChildren: 1 }
+    }
+  }
+};
+
+const background = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
+
+const modal = {
+  hidden: {
+    opacity: 0,
+    scale: 0.8
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1,
+      type: 'spring',
+      stiffness: 400,
+      damping: 12
+    }
+  }
+};
+
 const AuthModal: FunctionComponent = () => {
   const router = useRouter();
   const user = useUser();
   const supabaseClient = useSupabaseClient();
-  const [isOpen, setIsOpen, view, setView] = useAuthModalContext();
+  const [isOpen, setIsOpen, view, setView] = useAuthModal();
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   useEffect(() => {
     if (user) {
@@ -80,34 +125,67 @@ const AuthModal: FunctionComponent = () => {
     }
   }, [user, router]);
 
+  const handleEmailLogin = async () => {
+    await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+  };
+
+  const handleEmailSignUp = async () => {
+    await supabaseClient.auth.signUp({
+      email: email,
+      password: password
+    });
+  };
+
+  const handleForgotPassword = async () => {
+    await supabaseClient.auth.resetPasswordForEmail(email);
+  };
+
+  type Provider = 'github' | 'google' | 'apple' | 'notion';
+  const handleProviderLogin = async (provider: Provider) => {
+    await supabaseClient.auth.signInWithOAuth({
+      provider: provider
+    });
+  };
+
   // TODO Check if !user is needed
+  // TODO Error handling and message
 
   return (
     <AnimatePresence>
       {isOpen && (
         <Dialog
-          open={isOpen}
-          as={motion.div}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
           static
-          className="relative z-50"
+          as={motion.div}
+          open={isOpen}
           onClose={() => setIsOpen(false)}
+          variants={container}
+          initial="hidden"
+          animate="show"
+          exit="hidden"
+          className="relative z-50"
         >
-          <div
+          <motion.div
+            variants={background}
             className="fixed inset-0 bg-black/20 backdrop-blur"
             aria-hidden="true"
           />
-          <div className="fixed inset-0 flex items-center justify-center p-4 ">
+          <motion.div
+            variants={modal}
+            className="fixed inset-0 flex items-center justify-center p-4"
+          >
             <Dialog.Panel className="relative w-full max-w-sm rounded-xl p-8 pb-4 bg-carbon-gold border border-carbon-bronze/20">
-              <button
+              <Button
+                variant="icon"
+                size="minimal"
                 onClick={() => setIsOpen(false)}
                 aria-label="Close"
-                className="absolute top-5 right-5 p-1 rounded-md duration-300
-                 hover:bg-carbon-bronze/10"
+                className="absolute top-5 right-5"
               >
                 <Close />
-              </button>
+              </Button>
               <Dialog.Title className="text-3xl font-display mt-2">
                 {view === 'sign_up' && <>Get started.</>}
                 {view === 'sign_in' && <>Welcome back.</>}
@@ -121,76 +199,153 @@ const AuthModal: FunctionComponent = () => {
                 )}
               </Dialog.Description>
               {/* Social and form login. */}
-              <Auth
-                supabaseClient={supabaseClient}
-                providers={['apple', 'google', 'github', 'notion']}
-                redirectTo={getURL()}
-                showLinks={false}
-                appearance={{
-                  theme: customTheme,
-                  style: {
-                    button: {
-                      fill: 'white'
-                    }
-                  }
-                }}
-                view={view}
-                socialLayout="horizontal"
-                localization={{
-                  variables: {
-                    sign_in: {
-                      email_label: 'Email',
-                      password_label: 'Password',
-                      email_input_placeholder: 'john.chapman@acme.com',
-                      password_input_placeholder: '**********'
-                    },
-                    sign_up: {
-                      email_label: 'Email',
-                      password_label: 'Password',
-                      email_input_placeholder: 'john.chapman@acme.com',
-                      password_input_placeholder: '**********'
-                    }
-                  }
-                }}
-              />
-              {/* Bottom links. Custom implementation to manage state. */}
-              <div className="flex justify-center space-x-2 mt-4 mb-6">
-                {view === 'forgotten_password' && (
-                  <button
-                    onClick={() => setView('sign_in')}
-                    className="text-sm font-body underline text-carbon-bronze/80 hover:text-carbon-bronze/100"
-                  >
-                    Return to sign in.
-                  </button>
-                )}
-                {view === 'sign_up' && (
-                  <button
-                    onClick={() => setView('sign_in')}
-                    className="text-sm font-body underline text-carbon-bronze/80 hover:text-carbon-bronze/100"
-                  >
-                    Have an account? Sign in.
-                  </button>
-                )}
-                {view === 'sign_in' && (
-                  <>
-                    <button
-                      onClick={() => setView('forgotten_password')}
-                      className="text-sm font-body underline text-carbon-bronze/80 hover:text-carbon-bronze/100"
+              {view !== 'forgotten_password' && (
+                <>
+                  <div className="flex flex-row justify-between">
+                    <Button
+                      variant="light"
+                      size="small"
+                      onClick={() => handleProviderLogin('apple')}
                     >
-                      Forgot password?
-                    </button>
-                    <span>·</span>
-                    <button
-                      onClick={() => setView('sign_up')}
-                      className="text-sm font-body underline text-carbon-bronze/80 hover:text-carbon-bronze/100"
+                      <Apple className="p-1 fill-current" height="2rem" />
+                    </Button>
+                    <Button
+                      variant="light"
+                      size="small"
+                      onClick={() => handleProviderLogin('google')}
                     >
-                      No account? Sign up.
-                    </button>
-                  </>
+                      <Google className="p-1 fill-current" height="2rem" />
+                    </Button>
+                    <Button
+                      variant="light"
+                      size="small"
+                      onClick={() => handleProviderLogin('github')}
+                    >
+                      <GitHub className="p-1 fill-current" height="2rem" />
+                    </Button>
+                    <Button
+                      variant="light"
+                      size="small"
+                      onClick={() => handleProviderLogin('notion')}
+                    >
+                      <Notion className="p-1 fill-current" height="2rem" />
+                    </Button>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    className="my-4 border-b border-carbon-bronze/20"
+                  />
+                </>
+              )}
+              {/* Email and password login. */}
+              <div className="flex flex-col">
+                <div className="flex flex-col mb-4">
+                  <label htmlFor="email" className="text-sm font-body">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    className="border border-carbon-bronze/20 rounded-xl p-2 placeholder:text-carbon-bronze/50 focus:outline-none focus:border-carbon-bronze/50"
+                    placeholder="john.chapman@acme.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                {view !== 'forgotten_password' && (
+                  <div className="flex flex-col mb-4">
+                    <label htmlFor="password" className="text-sm font-body">
+                      Password
+                    </label>
+                    <input
+                      id="password"
+                      type="password"
+                      className="border border-carbon-bronze/20 rounded-xl p-2 placeholder:text-carbon-bronze/50 focus:outline-none focus:border-carbon-bronze/50"
+                      placeholder="appleseeds"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
                 )}
+                <div className="flex justify-between mt-1 mb-4">
+                  <Button
+                    onClick={() => {
+                      switch (view) {
+                        case 'sign_up':
+                          handleEmailSignUp();
+                          break;
+                        case 'sign_in':
+                          handleEmailLogin();
+                          break;
+                        case 'forgotten_password':
+                          handleForgotPassword();
+                          break;
+                      }
+                    }}
+                  >
+                    {view === 'sign_up' && <>Sign up</>}
+                    {view === 'sign_in' && <>Sign in</>}
+                    {view === 'forgotten_password' && <>Send reset email</>}
+                  </Button>
+                  {/* Bottom links. Custom implementation to manage state. */}
+                  <div className="flex justify-center space-x-2 py-3">
+                    {view === 'forgotten_password' && (
+                      <button
+                        onClick={() => setView('sign_in')}
+                        className="text-sm font-body underline text-carbon-bronze/80 hover:text-carbon-bronze/100"
+                      >
+                        Return to sign in.
+                      </button>
+                    )}
+                    {view === 'sign_up' && (
+                      <button
+                        onClick={() => setView('sign_in')}
+                        className="text-sm font-body underline text-carbon-bronze/80 hover:text-carbon-bronze/100"
+                      >
+                        Have an account? Sign in.
+                      </button>
+                    )}
+                    {view === 'sign_in' && (
+                      <>
+                        <button
+                          onClick={() => setView('forgotten_password')}
+                          className="text-sm font-body underline text-carbon-bronze/80 hover:text-carbon-bronze/100"
+                        >
+                          Forgot password?
+                        </button>
+                        <span className="leading-none">·</span>
+                        <button
+                          onClick={() => setView('sign_up')}
+                          className="text-sm font-body underline text-carbon-bronze/80 hover:text-carbon-bronze/100"
+                        >
+                          Sign up.
+                        </button>
+                      </>
+                    )}
+                  </div>
+                </div>
               </div>
+              {view === 'sign_up' && (
+                <p className="text-sm mb-4 text-carbon-bronze/60">
+                  By continuing, you agree to Carbon Voyage&apos;s{' '}
+                  <a
+                    href=""
+                    className='className="text-sm font-body underline hover:text-carbon-bronze/100"'
+                  >
+                    Terms of Service
+                  </a>{' '}
+                  and{' '}
+                  <a
+                    href=""
+                    className='className="text-sm font-body underline hover:text-carbon-bronze/100"'
+                  >
+                    Privacy Policy
+                  </a>
+                  .
+                </p>
+              )}
             </Dialog.Panel>
-          </div>
+          </motion.div>
         </Dialog>
       )}
     </AnimatePresence>

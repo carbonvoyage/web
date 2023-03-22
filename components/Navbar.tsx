@@ -1,11 +1,15 @@
-import { useEffect, useState, FunctionComponent } from 'react';
 import Link from 'next/link';
-
-import { Logo, Hamburger } from 'assets/icons';
-import { useAuthModalContext } from '@/context/authModalContext';
 import { useRouter } from 'next/router';
-import { useUser } from 'utils/useUser';
+import { FunctionComponent, useEffect, useState } from 'react';
+
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
+
+import Button from '@components/Button';
+
+import { useAuthModal } from '@context/useAuthModal';
+import { useUser } from '@context/useUser';
+
+import { Hamburger, Logo } from '@assets/icons';
 
 type Props = {
   minimal?: boolean;
@@ -24,8 +28,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
   const supabaseClient = useSupabaseClient();
   const { user } = useUser();
   const [blurBackground, setBlurBackground] = useState(false);
-  const [isOpen, setIsAuthModalOpen, view, setAuthModalView] =
-    useAuthModalContext();
+  const [isOpen, setIsAuthModalOpen, view, setAuthModalView] = useAuthModal();
 
   // Default links if none are passed in
   const defaultLinks = [
@@ -50,6 +53,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
     };
   }, []);
 
+  // TODO Reimplement mobile menu
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
 
   return (
@@ -135,18 +139,13 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
                   >
                     Sign in
                   </a>
-                  <a
+                  <Button
                     onClick={() => {
                       setIsAuthModalOpen(true), setAuthModalView('sign_up');
                     }}
                   >
-                    <button
-                      type="button"
-                      className="text-carbon-gold bg-carbon-bronze rounded-xl py-2 px-4"
-                    >
-                      Sign up
-                    </button>
-                  </a>
+                    Sign up
+                  </Button>
                 </>
               )}
             </nav>

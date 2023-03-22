@@ -1,9 +1,8 @@
-import React from 'react';
 import Tilt from 'react-parallax-tilt';
 
-import { Logo, Barcode } from 'assets/icons';
+import { Barcode, Logo } from '@assets/icons';
 
-const DemoReceipt = () => {
+const Receipt = () => {
   return (
     <div className="relative">
       <Logo className="absolute scale-[5] rotate-[260deg] top-40 left-24 w-20 p-2" />
@@ -100,4 +99,4 @@ const DemoReceipt = () => {
   );
 };
 
-export default DemoReceipt;
+export default Receipt;

@@ -1,16 +1,13 @@
-import Link from 'next/link';
 import { GetServerSidePropsContext } from 'next';
-import { useState, ReactNode } from 'react';
-
-// import LoadingDots from 'ui/LoadingDots';
-// import Button from 'ui/Button';
-import { useUser } from 'utils/useUser';
-import { postData } from 'utils/helpers';
+import { ReactNode, useState } from 'react';
 
 import {
-  createServerSupabaseClient,
-  User
+  User,
+  createServerSupabaseClient
 } from '@supabase/auth-helpers-nextjs';
+
+import { useUser } from '@context/useUser';
+import { postData } from '@utils/helpers';
 
 interface Props {
   title: string;
@@ -61,7 +58,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 
 export default function Account({ user }: { user: User }) {
   const [loading, setLoading] = useState(false);
-  const { isLoading, subscription, userDetails } = useUser();
+  const { isLoading, userDetails } = useUser();
 
   const redirectToCustomerPortal = async () => {
     setLoading(true);
@@ -76,14 +73,6 @@ export default function Account({ user }: { user: User }) {
     setLoading(false);
   };
 
-  const subscriptionPrice =
-    subscription &&
-    new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: subscription?.prices?.currency,
-      minimumFractionDigits: 0
-    }).format((subscription?.prices?.unit_amount || 0) / 100);
-
   return (
     <section className="bg-black mb-32">
       <div className="max-w-6xl mx-auto pt-8 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
@@ -94,39 +83,6 @@ export default function Account({ user }: { user: User }) {
         </div>
       </div>
       <div className="p-4">
-        <Card
-          title="Your Plan"
-          description={
-            subscription
-              ? `You are currently on the ${subscription?.prices?.products?.name} plan.`
-              : ''
-          }
-          footer={
-            <div className="flex items-start justify-between flex-col sm:flex-row sm:items-center">
-              <p className="pb-4 sm:pb-0">
-                Manage your subscription on Stripe.
-              </p>
-              {/* <Button
-                variant="slim"
-                loading={loading}
-                disabled={loading || !subscription}
-                onClick={redirectToCustomerPortal}
-              >
-                Open customer portal
-              </Button> */}
-            </div>
-          }
-        >
-          <div className="text-xl mt-8 mb-4 font-semibold">
-            {isLoading ? (
-              <div className="h-12 mb-6">{/* <LoadingDots /> */}</div>
-            ) : subscription ? (
-              `${subscriptionPrice}/${subscription?.prices?.interval}`
-            ) : (
-              <Link href="/">Choose your plan</Link>
-            )}
-          </div>
-        </Card>
         <Card
           title="Your Name"
           description="Please enter your full name, or a display name you are comfortable with."

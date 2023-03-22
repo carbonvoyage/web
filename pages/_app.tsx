@@ -1,15 +1,19 @@
-import 'styles/main.css';
-import 'styles/chrome-bug.css';
+import { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
 import React from 'react';
 
-import Layout from 'components/Layout';
-import { SessionContextProvider } from '@supabase/auth-helpers-react';
 import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import { AppProps } from 'next/app';
-import { MyUserContextProvider } from 'utils/useUser';
-import { AuthModalProvider } from 'context/authModalContext';
+import { SessionContextProvider } from '@supabase/auth-helpers-react';
+
+import Layout from '@components/Layout';
+
+import { AuthModalProvider } from '@context/useAuthModal';
+import { MyUserContextProvider } from '@context/useUser';
+
 import type { Database } from 'types_db';
+
+import '@styles/chrome-bug.css';
+import '@styles/main.css';
 
 export default function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   const [supabaseClient] = useState(() =>
