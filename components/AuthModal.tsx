@@ -1,11 +1,9 @@
 import { useRouter } from 'next/router';
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useEffect, useRef, useState } from 'react';
 
 import { Dialog } from '@headlessui/react';
 import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react';
-import { Auth } from '@supabase/auth-ui-react';
-import { Theme } from '@supabase/auth-ui-shared';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useWillChange } from 'framer-motion';
 
 import Button from '@components/Button';
 
@@ -14,82 +12,25 @@ import { getURL } from '@utils/helpers';
 
 import { Apple, Close, GitHub, Google, Notion } from '@assets/icons';
 
-// Supabase Auth UI Theme
-const customTheme: Theme = {
-  default: {
-    colors: {
-      brand: '#7D671F',
-      brandAccent: '#7D671F',
-      brandButtonText: '#FFF0AD',
-      defaultButtonBackground: 'white',
-      defaultButtonBackgroundHover: 'white',
-      defaultButtonBorder: '#e5d391',
-      defaultButtonText: '#7D671F',
-      dividerBackground: '#e5d391',
-      inputBackground: 'white',
-      inputBorder: '#e5d391',
-      inputBorderHover: '#7D671F',
-      inputBorderFocus: '#7D671F',
-      inputText: '#7D671F',
-      inputLabelText: '#7D671F',
-      inputPlaceholder: '#7D671F78',
-      messageText: '#7D671F',
-      messageTextDanger: 'red',
-      anchorTextColor: '#7D671F78',
-      anchorTextHoverColor: '7D671F'
-    },
-    fonts: {
-      bodyFontFamily: '"apolline",serif',
-      buttonFontFamily: '"apolline",serif',
-      inputFontFamily: '"apolline",serif',
-      labelFontFamily: '"apolline",serif'
-    },
-    fontSizes: {
-      baseBodySize: '0.875rem;',
-      baseInputSize: '1rem',
-      baseLabelSize: '1rem',
-      baseButtonSize: '1rem'
-    },
-    borderWidths: {
-      buttonBorderWidth: '1px',
-      inputBorderWidth: '1px'
-    },
-    space: {
-      spaceSmall: '4px',
-      spaceMedium: '8px',
-      spaceLarge: '16px',
-      labelBottomMargin: '8px',
-      anchorBottomMargin: '4px',
-      emailInputSpacing: '4px',
-      socialAuthSpacing: '4px',
-      buttonPadding: '10px 15px',
-      inputPadding: '10px 15px'
-    },
-    radii: {
-      borderRadiusButton: '0.75rem',
-      buttonBorderRadius: '0.75rem',
-      inputBorderRadius: '0.75rem'
-    }
-  }
-};
-
 // Framer Motion Variants
 const container = {
   hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      transition: { staggerChildren: 1 }
-    }
-  }
+  show: { opacity: 1 }
 };
 
 const background = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut'
+    }
+  },
   show: {
     opacity: 1,
     transition: {
-      duration: 0.5
+      duration: 0.5,
+      ease: 'easeIn'
     }
   }
 };
@@ -103,10 +44,10 @@ const modal = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 1,
+      delay: 0.3,
       type: 'spring',
       stiffness: 400,
-      damping: 12
+      damping: 24
     }
   }
 };
@@ -115,10 +56,13 @@ const AuthModal: FunctionComponent = () => {
   const router = useRouter();
   const user = useUser();
   const supabaseClient = useSupabaseClient();
+  const willChange = useWillChange();
   const [isOpen, setIsOpen, view, setView] = useAuthModal();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const emailRef = useRef<HTMLInputElement>(null);
 
+  // TODO Move this to index.tsx
   useEffect(() => {
     if (user) {
       router.replace('/account');
@@ -150,7 +94,6 @@ const AuthModal: FunctionComponent = () => {
     });
   };
 
-  // TODO Check if !user is needed
   // TODO Error handling and message
 
   return (
@@ -159,6 +102,7 @@ const AuthModal: FunctionComponent = () => {
         <Dialog
           static
           as={motion.div}
+          initialFocus={emailRef}
           open={isOpen}
           onClose={() => setIsOpen(false)}
           variants={container}
@@ -170,11 +114,14 @@ const AuthModal: FunctionComponent = () => {
           <motion.div
             variants={background}
             className="fixed inset-0 bg-black/20 backdrop-blur"
+            style={{ willChange }}
+            // style={{ backdropFilter: `blur(${1}px)` }}
             aria-hidden="true"
           />
           <motion.div
             variants={modal}
             className="fixed inset-0 flex items-center justify-center p-4"
+            style={{ willChange }}
           >
             <Dialog.Panel className="relative w-full max-w-sm rounded-xl p-8 pb-4 bg-carbon-gold border border-carbon-bronze/20">
               <Button
@@ -244,6 +191,7 @@ const AuthModal: FunctionComponent = () => {
                     Email
                   </label>
                   <input
+                    ref={emailRef}
                     id="email"
                     type="email"
                     className="border border-carbon-bronze/20 rounded-xl p-2 placeholder:text-carbon-bronze/50 focus:outline-none focus:border-carbon-bronze/50"
