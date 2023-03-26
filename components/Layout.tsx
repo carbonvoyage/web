@@ -21,6 +21,8 @@ export default function Layout({ children, meta: pageMeta }: Props) {
     cardImage: '/og.png',
     ...pageMeta
   };
+  // Check if we're on the homepage
+  const isHome = router.pathname === '/';
 
   return (
     <>
@@ -51,7 +53,7 @@ export default function Layout({ children, meta: pageMeta }: Props) {
       <Navbar />
       <main id="skip">{children}</main>
       <AuthModal />
-      <Footer />
+      <Footer size={isHome ? 'large' : 'normal'} />
     </>
   );
 }

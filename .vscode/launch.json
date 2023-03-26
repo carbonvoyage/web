@@ -6,21 +6,21 @@
       "type": "node-terminal",
       "request": "launch",
       "command": "npm run dev",
-      "cwd": "${workspaceFolder}/apps/web"
+      "cwd": "${workspaceFolder}"
     },
     {
       "name": "Web: debug client-side",
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}/apps/web"
+      "webRoot": "${workspaceFolder}"
     },
     {
       "name": "Web: debug full stack",
       "type": "node-terminal",
       "request": "launch",
       "command": "npm run dev",
-      "cwd": "${workspaceFolder}/apps/web",
+      "cwd": "${workspaceFolder}",
       "serverReadyAction": {
         "pattern": "started server on .+, url: (https?://.+)",
         "uriFormat": "%s",

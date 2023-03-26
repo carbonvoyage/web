@@ -1,13 +1,13 @@
 import Hero from './Hero';
-import News from './News';
+import Intro from './Intro';
 import Rundown from './Rundown';
 
 const Landing = () => {
   return (
     <>
       <Hero />
+      <Intro />
       <Rundown />
-      <News />
     </>
   );
 };

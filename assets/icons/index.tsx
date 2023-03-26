@@ -1,8 +1,14 @@
 export { default as Apple } from './Apple';
 export { default as Barcode } from './Barcode';
+export { default as Book } from './Book';
 export { default as Close } from './Close';
+export { default as Every } from './Every';
 export { default as GitHub } from './GitHub';
 export { default as Google } from './Google';
 export { default as Hamburger } from './Hamburger';
+export { default as Heart } from './Heart';
 export { default as Logo } from './Logo';
 export { default as Notion } from './Notion';
+export { default as Star } from './Star';
+export { default as Warning } from './Warning';
+export { default as Watch } from './Watch';

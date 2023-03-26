@@ -10,10 +10,10 @@ const Receipt = () => {
       <Tilt
         className="w-80 m-auto"
         scale={1.1}
-        tiltMaxAngleX={15}
-        tiltMaxAngleY={15}
+        tiltMaxAngleX={12}
+        tiltMaxAngleY={12}
         tiltAngleXInitial={8}
-        tiltAngleYInitial={15}
+        tiltAngleYInitial={8}
         transitionSpeed={6000}
         glareEnable={false}
       >

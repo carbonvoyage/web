@@ -1,4 +1,4 @@
-const Google = ({ ...props }) => {
+const Apple = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,4 +12,4 @@ const Google = ({ ...props }) => {
   );
 };
 
-export default Google;
+export default Apple;
