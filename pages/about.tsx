@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-import Landing from '@components/Landing';
+import About from '@components/About';
 
 export default function LandingPage() {
   const router = useRouter();
@@ -15,5 +15,5 @@ export default function LandingPage() {
     }
   }, [user, router]);
 
-  return <Landing />;
+  return <About />;
 }

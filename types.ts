@@ -4,6 +4,11 @@ export interface PageMeta {
   cardImage: string;
 }
 
+export interface IFounder {
+  name: string;
+  role: string;
+}
+
 export interface Customer {
   id: string /* primary key */;
   stripe_customer_id?: string;
