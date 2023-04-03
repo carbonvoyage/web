@@ -7,6 +7,7 @@ export interface PageMeta {
 export interface IFounder {
   name: string;
   role: string;
+  className?: string;
 }
 
 export interface Customer {
