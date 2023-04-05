@@ -8,11 +8,12 @@ const Barcode = ({ className = '', ...props }) => {
       viewBox="0 0 332 100"
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
+      fill="current"
       className={className}
       {...props}
     >
-      <rect x="0" y="0" width="332" height="100" fill="#ffffff"></rect>
-      <g transform="translate(10, 10)" fill="#000000">
+      <rect x="0" y="0" width="332" height="100" fill="transparent"></rect>
+      <g transform="translate(10, 10)" fill="current">
         <rect x="0" y="0" width="4" height="75"></rect>
         <rect x="6" y="0" width="2" height="75"></rect>
         <rect x="12" y="0" width="2" height="75"></rect>

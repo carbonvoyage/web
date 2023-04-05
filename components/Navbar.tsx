@@ -67,15 +67,18 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
       <div className="bg-carbon-bronze text-carbon-gold">
         <div className="mx-auto max-w-6xl text-center py-2">
           <Warning className="inline-block mr-1 p-1" />
-          This project is in early development. Track progress on{' '}
-          <a
-            className="underline hover:text-carbon-gold/100"
-            target="_blank"
-            href="https://github.com/carbonvoyage/web"
-          >
-            GitHub
-          </a>
-          .
+          This project is in early development.{' '}
+          <span className="hidden md:inline">
+            Track progress on{' '}
+            <a
+              className="underline hover:text-carbon-gold/100"
+              target="_blank"
+              href="https://github.com/carbonvoyage/web"
+            >
+              GitHub
+            </a>
+            .
+          </span>
         </div>
       </div>
       <div

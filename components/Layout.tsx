@@ -51,7 +51,9 @@ export default function Layout({ children, meta: pageMeta }: Props) {
         <meta name="twitter:image" content={meta.cardImage} />
       </Head>
       <Navbar />
-      <main id="skip">{children}</main>
+      <main id="skip" className="text-lg lg:text-xl">
+        {children}
+      </main>
       <AuthModal />
       <Footer size={isHome ? 'large' : 'normal'} />
     </>
