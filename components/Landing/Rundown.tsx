@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 
-import { useMediaQueries } from '@react-hook/media-query';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 
@@ -159,11 +158,6 @@ export default function Rundown() {
     }
   });
 
-  const { matchesAll } = useMediaQueries({
-    screen: 'screen',
-    width: '(min-width: 1024px)'
-  });
-
   return (
     <section className="bg-carbon-gold">
       <div className="mx-auto max-w-6xl flex flex-col lg:flex-row py-6">
@@ -220,33 +214,30 @@ export default function Rundown() {
         <div className="basis-1/2 order-first lg:order-last py-8 lg:py-12 px-8 lg:-my-40">
           <div className="h-full lg:h-screen m-auto sticky top-0">
             <div className="lg:absolute top-1/2 lg:-translate-y-1/2">
-              {matchesAll ? (
-                <Tilt
-                  tiltAngleXManual={tiltPose[0]}
-                  tiltAngleYManual={tiltPose[1]}
-                  transitionSpeed={6000}
-                  perspective={500}
-                  trackOnWindow={true}
-                  className="w-80 h-80 bg-carbon-white border border-carbon-bronze/20 shadow-xl shadow-carbon-bronze/40 rounded-2xl"
-                  style={{ transformStyle: 'preserve-3d' }}
-                >
-                  {(() => {
-                    switch (featured) {
-                      case 'install':
-                        return <Install />;
-                      case 'shop':
-                        return <Shop />;
-                      case 'offset':
-                        return <Receipt />;
-                    }
-                    // @ts-ignore TODO: Fix this
-                  }).call(this)}
-                </Tilt>
-              ) : (
-                <div className="overflow-hidden h-80 bg-carbon-white border border-carbon-bronze/20 shadow-xl shadow-carbon-bronze/20 rounded-2xl">
-                  <Install />
-                </div>
-              )}
+              <Tilt
+                tiltAngleXManual={tiltPose[0]}
+                tiltAngleYManual={tiltPose[1]}
+                transitionSpeed={6000}
+                perspective={500}
+                trackOnWindow={true}
+                className="hidden lg:static w-80 h-80 bg-carbon-white border border-carbon-bronze/20 shadow-xl shadow-carbon-bronze/40 rounded-2xl"
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {(() => {
+                  switch (featured) {
+                    case 'install':
+                      return <Install />;
+                    case 'shop':
+                      return <Shop />;
+                    case 'offset':
+                      return <Receipt />;
+                  }
+                  // @ts-ignore TODO: Fix this
+                }).call(this)}
+              </Tilt>
+              <div className="lg:hidden overflow-hidden h-80 bg-carbon-white border border-carbon-bronze/20 shadow-xl shadow-carbon-bronze/20 rounded-2xl">
+                <Install />
+              </div>
             </div>
           </div>
         </div>

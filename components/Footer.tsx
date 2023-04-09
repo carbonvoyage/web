@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
 
-import { useMediaQueries } from '@react-hook/media-query';
-
 import { GitHub, Logo, Notion } from '@assets/icons';
 import Discord from '@assets/icons/Discord';
 
@@ -13,11 +11,6 @@ type Props = {
 };
 
 const Footer: FunctionComponent<Props> = ({ size = 'normal' }) => {
-  const { matchesAll } = useMediaQueries({
-    screen: 'screen',
-    width: '(min-width: 1024px)'
-  });
-
   return (
     <footer className="md:p-8 bg-carbon-bronze text-carbon-gold">
       {size === 'large' && (
@@ -34,7 +27,7 @@ const Footer: FunctionComponent<Props> = ({ size = 'normal' }) => {
             <Button
               aria-label="GitHub"
               variant="alt"
-              size={matchesAll ? 'large' : 'small'}
+              size="large"
               className="flex space-x-1 p-1"
             >
               <GitHub

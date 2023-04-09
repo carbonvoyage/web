@@ -22,8 +22,34 @@ export default function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   );
 
   useEffect(() => {
-    document.body.classList?.remove('loading');
-  }, []);
+    // Check which browser we're using
+    // TODO: Support for Firefox ID
+    // @ts-ignore
+    const extensionId = window.chrome
+      ? 'mdcgbdmolfjpjaljhjaocjnlkmidgfed'
+      : 'f2ec00da-28c9-452e-aa88-ad04ad33ee0f';
+    // @ts-ignore
+    const browser = window.browser ?? window.chrome;
+
+    supabaseClient.auth.onAuthStateChange((event, session) => {
+      switch (event) {
+        case 'SIGNED_IN':
+        case 'USER_UPDATED':
+        case 'TOKEN_REFRESHED':
+          browser.runtime.sendMessage(extensionId, {
+            action: 'updateSession',
+            session: session
+          });
+          break;
+        case 'SIGNED_OUT':
+        case 'PASSWORD_RECOVERY':
+          browser.runtime.sendMessage(extensionId, {
+            action: 'removeSession'
+          });
+          break;
+      }
+    });
+  });
 
   const toastStyle: CSSProperties = {
     border: '1px solid rgb(125 103 31 / 0.2)',
