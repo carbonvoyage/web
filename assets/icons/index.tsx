@@ -12,3 +12,8 @@ export { default as Notion } from './Notion';
 export { default as Star } from './Star';
 export { default as Warning } from './Warning';
 export { default as Watch } from './Watch';
+export { default as UserPen } from './UserPen';
+export { default as Connections } from './Connections';
+export { default as CreditCard } from './CreditCard';
+export { default as CircleMinus } from './CircleMinus';
+export { default as ChevronRight } from './ChevronRight';

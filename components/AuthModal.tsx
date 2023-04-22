@@ -70,6 +70,8 @@ const Form: FunctionComponent<FormProps> = ({
 }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
 
   const validEmail = () => {
     if (email.length === 0 && password.length === 0) {
@@ -85,6 +87,18 @@ const Form: FunctionComponent<FormProps> = ({
     // eslint-disable-next-line no-useless-escape
     else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
       toast.error('Email must be valid.');
+      return false;
+    }
+    return true;
+  };
+
+  const validName = () => {
+    if (firstName.trim().length === 0) {
+      toast.error('First name is required.');
+      return false;
+    }
+    if (lastName.trim().length === 0) {
+      toast.error('Last name is required.');
       return false;
     }
     return true;
@@ -121,14 +135,20 @@ const Form: FunctionComponent<FormProps> = ({
   };
 
   const handleEmailSignUp = async () => {
-    if (!validEmail() || !validPassword()) {
+    if (!validEmail() || !validPassword() || !validName()) {
       return;
     }
 
     await supabaseClient.auth
       .signUp({
         email: email,
-        password: password
+        password: password,
+        options: {
+          data: {
+            first_name: firstName,
+            last_name: lastName
+          }
+        }
       })
       .then((response) => {
         if (response.error) {
@@ -153,6 +173,38 @@ const Form: FunctionComponent<FormProps> = ({
 
   return (
     <div className="flex flex-col">
+      {view !== 'forgotten_password' && view !== 'sign_in' && (
+        <div className="flex flex-col mb-4">
+          <label htmlFor="firstName" className="text-sm font-body">
+            First Name
+          </label>
+          <input
+            id="firstName"
+            type="text"
+            className="border border-carbon-bronze/20 rounded-xl p-2 placeholder:text-carbon-bronze/50 focus:outline-none focus:border-carbon-bronze/50"
+            placeholder="John"
+            value={firstName}
+            required
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </div>
+      )}
+      {view !== 'forgotten_password' && view !== 'sign_in' && (
+        <div className="flex flex-col mb-4">
+          <label htmlFor="lastName" className="text-sm font-body">
+            Last Name
+          </label>
+          <input
+            id="lastName"
+            type="text"
+            className="border border-carbon-bronze/20 rounded-xl p-2 placeholder:text-carbon-bronze/50 focus:outline-none focus:border-carbon-bronze/50"
+            placeholder="Chapman"
+            value={lastName}
+            required
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </div>
+      )}
       <div className="flex flex-col mb-4">
         <label htmlFor="email" className="text-sm font-body">
           Email

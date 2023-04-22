@@ -6,7 +6,7 @@ import {
   createServerSupabaseClient
 } from '@supabase/auth-helpers-nextjs';
 
-import Account from '@components/Account';
+import Dashboard from '@components/Dashboard';
 
 import { useUser } from '@context/useUser';
 import { postData } from '@utils/helpers';
@@ -42,7 +42,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   };
 };
 
-export default function AccountPage({ user }: { user: User }) {
+export default function DashboardPage({ user }: { user: User }) {
   const [loading, setLoading] = useState(false);
   const { isLoading, userDetails } = useUser();
   const redirectToCustomerPortal = async () => {
@@ -58,5 +58,5 @@ export default function AccountPage({ user }: { user: User }) {
     setLoading(false);
   };
 
-  return <Account />;
+  return <Dashboard user={userDetails} />;
 }

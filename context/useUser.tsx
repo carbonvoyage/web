@@ -6,12 +6,13 @@ import {
   useUser as useSupaUser
 } from '@supabase/auth-helpers-react';
 
-import { UserDetails } from 'types';
+import { Transaction, UserDetails } from 'types';
 
 type UserContextType = {
   accessToken: string | null;
   user: User | null;
   userDetails: UserDetails | null;
+  transactionDetails: Transaction[] | null;
   isLoading: boolean;
 };
 
@@ -33,32 +34,31 @@ export const MyUserContextProvider = (props: Props) => {
   const accessToken = session?.access_token ?? null;
   const [isLoadingData, setIsloadingData] = useState(false);
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
+  const [transactionDetails, setTransactionDetails] = useState<
+    Transaction[] | null
+  >([]);
 
   const getUserDetails = () => supabase.from('users').select('*').single();
-  const getSubscription = () =>
-    supabase
-      .from('subscriptions')
-      .select('*, prices(*, products(*))')
-      .in('status', ['trialing', 'active'])
-      .single();
+  const getTransactions = () =>
+    supabase.from('transactions').select(`*, charities(name)`);
 
   useEffect(() => {
     if (user && !isLoadingData && !userDetails) {
       setIsloadingData(true);
-      Promise.allSettled([getUserDetails(), getSubscription()]).then(
+      Promise.allSettled([getUserDetails(), getTransactions()]).then(
         (results) => {
           const userDetailsPromise = results[0];
-          const subscriptionPromise = results[1];
+          const transactionPromise = results[1];
 
           if (userDetailsPromise.status === 'fulfilled')
             // TODO: Fix this ts-ignore
             // @ts-ignore
-            setUserDetails(userDetailsPromise.value.data);
 
-          if (subscriptionPromise.status === 'fulfilled')
-            // TODO: Fix this ts-ignore
+            setUserDetails(userDetailsPromise.value.data);
+          if (transactionPromise.status === 'fulfilled')
+            //TODO: Fix this ts-ignore
             // @ts-ignore
-            setSubscription(subscriptionPromise.value.data);
+            setTransactionDetails(transactionPromise.value.data);
 
           setIsloadingData(false);
         }
@@ -73,9 +73,9 @@ export const MyUserContextProvider = (props: Props) => {
     accessToken,
     user,
     userDetails,
+    transactionDetails,
     isLoading: isLoadingUser || isLoadingData
   };
-
   return <UserContext.Provider value={value} {...props} />;
 };
 

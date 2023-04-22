@@ -4,9 +4,20 @@ export interface PageMeta {
   cardImage: string;
 }
 
-export interface Customer {
-  id: string /* primary key */;
-  stripe_customer_id?: string;
+export interface Transaction {
+  created_at: string;
+  donated: boolean;
+  donated_at?: string | null;
+  id: string;
+  marketplace: string;
+  selected_charity: string;
+  total_emissions: number;
+  total_offset: number;
+  total_price: number;
+  user_id: string;
+  charities: {
+    name: string;
+  };
 }
 
 export interface UserDetails {

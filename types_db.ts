@@ -9,209 +9,144 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      users: {
+      charities: {
         Row: {
+          first_donated: string | null;
           id: string;
-          first_name: string | null;
-          last_name: string | null;
-          billing_address: Json | null;
-          payment_method: Json | null;
-          full_name: string | null;
-          avatar_url: string | null;
+          name: string;
+          selected: boolean;
+          slug: string;
+          total_donated: number;
+          total_transactions: number;
+          user_id: string;
         };
         Insert: {
-          id: string;
-          first_name?: string | null;
-          last_name?: string | null;
-          billing_address?: Json | null;
-          payment_method?: Json | null;
-          full_name?: string | null;
-          avatar_url?: string | null;
+          first_donated?: string | null;
+          id?: string;
+          name: string;
+          selected?: boolean;
+          slug: string;
+          total_donated?: number;
+          total_transactions?: number;
+          user_id: string;
         };
         Update: {
+          first_donated?: string | null;
           id?: string;
-          first_name?: string | null;
-          last_name?: string | null;
-          billing_address?: Json | null;
-          payment_method?: Json | null;
-          full_name?: string | null;
-          avatar_url?: string | null;
-        };
-      };
-      customers: {
-        Row: {
-          id: string;
-          stripe_customer_id: string | null;
-        };
-        Insert: {
-          id: string;
-          stripe_customer_id?: string | null;
-        };
-        Update: {
-          id?: string;
-          stripe_customer_id?: string | null;
+          name?: string;
+          selected?: boolean;
+          slug?: string;
+          total_donated?: number;
+          total_transactions?: number;
+          user_id?: string;
         };
       };
       products: {
         Row: {
-          id: string;
-          active: boolean | null;
-          name: string | null;
-          description: string | null;
-          access_role:
-            | Database['public']['Enums']['content_access_role']
-            | null;
-          image: string | null;
-          metadata: Json | null;
+          emissions: number;
+          height: number | null;
+          length: number | null;
+          materials: string[] | null;
+          offset: number;
+          price: number;
+          title: string;
+          transaction_id: string;
+          user_id: string;
+          uuid: string;
+          weight: number | null;
+          width: number | null;
         };
         Insert: {
-          id: string;
-          active?: boolean | null;
-          name?: string | null;
-          description?: string | null;
-          access_role?:
-            | Database['public']['Enums']['content_access_role']
-            | null;
-          image?: string | null;
-          metadata?: Json | null;
+          emissions?: number;
+          height?: number | null;
+          length?: number | null;
+          materials?: string[] | null;
+          offset?: number;
+          price?: number;
+          title: string;
+          transaction_id: string;
+          user_id: string;
+          uuid?: string;
+          weight?: number | null;
+          width?: number | null;
         };
         Update: {
-          id?: string;
-          active?: boolean | null;
-          name?: string | null;
-          description?: string | null;
-          access_role?:
-            | Database['public']['Enums']['content_access_role']
-            | null;
-          image?: string | null;
-          metadata?: Json | null;
-        };
-      };
-      posts: {
-        Row: {
-          id: number;
-          title: string;
-          content: string;
-          created_at: string | null;
-          access_level:
-            | Database['public']['Enums']['content_access_role']
-            | null;
-        };
-        Insert: {
-          id?: number;
-          title: string;
-          content: string;
-          created_at?: string | null;
-          access_level?:
-            | Database['public']['Enums']['content_access_role']
-            | null;
-        };
-        Update: {
-          id?: number;
+          emissions?: number;
+          height?: number | null;
+          length?: number | null;
+          materials?: string[] | null;
+          offset?: number;
+          price?: number;
           title?: string;
-          content?: string;
-          created_at?: string | null;
-          access_level?:
-            | Database['public']['Enums']['content_access_role']
-            | null;
-        };
-      };
-      prices: {
-        Row: {
-          id: string;
-          product_id: string | null;
-          active: boolean | null;
-          unit_amount: number | null;
-          currency: string | null;
-          type: Database['public']['Enums']['pricing_type'] | null;
-          interval: Database['public']['Enums']['pricing_plan_interval'] | null;
-          interval_count: number | null;
-          trial_period_days: number | null;
-          metadata: Json | null;
-          description: string | null;
-        };
-        Insert: {
-          id: string;
-          product_id?: string | null;
-          active?: boolean | null;
-          unit_amount?: number | null;
-          currency?: string | null;
-          type?: Database['public']['Enums']['pricing_type'] | null;
-          interval?:
-            | Database['public']['Enums']['pricing_plan_interval']
-            | null;
-          interval_count?: number | null;
-          trial_period_days?: number | null;
-          metadata?: Json | null;
-          description?: string | null;
-        };
-        Update: {
-          id?: string;
-          product_id?: string | null;
-          active?: boolean | null;
-          unit_amount?: number | null;
-          currency?: string | null;
-          type?: Database['public']['Enums']['pricing_type'] | null;
-          interval?:
-            | Database['public']['Enums']['pricing_plan_interval']
-            | null;
-          interval_count?: number | null;
-          trial_period_days?: number | null;
-          metadata?: Json | null;
-          description?: string | null;
-        };
-      };
-      subscriptions: {
-        Row: {
-          id: string;
-          user_id: string;
-          status: Database['public']['Enums']['subscription_status'] | null;
-          metadata: Json | null;
-          price_id: string | null;
-          quantity: number | null;
-          cancel_at_period_end: boolean | null;
-          created: string;
-          current_period_start: string;
-          current_period_end: string;
-          ended_at: string | null;
-          cancel_at: string | null;
-          canceled_at: string | null;
-          trial_start: string | null;
-          trial_end: string | null;
-        };
-        Insert: {
-          id: string;
-          user_id: string;
-          status?: Database['public']['Enums']['subscription_status'] | null;
-          metadata?: Json | null;
-          price_id?: string | null;
-          quantity?: number | null;
-          cancel_at_period_end?: boolean | null;
-          created?: string;
-          current_period_start?: string;
-          current_period_end?: string;
-          ended_at?: string | null;
-          cancel_at?: string | null;
-          canceled_at?: string | null;
-          trial_start?: string | null;
-          trial_end?: string | null;
-        };
-        Update: {
-          id?: string;
+          transaction_id?: string;
           user_id?: string;
-          status?: Database['public']['Enums']['subscription_status'] | null;
-          metadata?: Json | null;
-          price_id?: string | null;
-          quantity?: number | null;
-          cancel_at_period_end?: boolean | null;
-          created?: string;
-          current_period_start?: string;
-          current_period_end?: string;
-          ended_at?: string | null;
-          cancel_at?: string | null;
-          canceled_at?: string | null;
-          trial_start?: string | null;
-          trial_end?: string | null;
+          uuid?: string;
+          weight?: number | null;
+          width?: number | null;
+        };
+      };
+      transactions: {
+        Row: {
+          created_at: string;
+          donated: boolean;
+          donated_at: string | null;
+          id: string;
+          marketplace: string;
+          selected_charity: string;
+          total_emissions: number;
+          total_offset: number;
+          total_price: number;
+          user_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          donated?: boolean;
+          donated_at?: string | null;
+          id?: string;
+          marketplace: string;
+          selected_charity: string;
+          total_emissions?: number;
+          total_offset?: number;
+          total_price?: number;
+          user_id: string;
+        };
+        Update: {
+          created_at?: string;
+          donated?: boolean;
+          donated_at?: string | null;
+          id?: string;
+          marketplace?: string;
+          selected_charity?: string;
+          total_emissions?: number;
+          total_offset?: number;
+          total_price?: number;
+          user_id?: string;
+        };
+      };
+      users: {
+        Row: {
+          avatar_url: string | null;
+          first_name: string | null;
+          id: string;
+          last_name: string | null;
+          total_donated: number;
+          total_emissions: number;
+        };
+        Insert: {
+          avatar_url?: string | null;
+          first_name?: string | null;
+          id: string;
+          last_name?: string | null;
+          total_donated?: number;
+          total_emissions?: number;
+        };
+        Update: {
+          avatar_url?: string | null;
+          first_name?: string | null;
+          id?: string;
+          last_name?: string | null;
+          total_donated?: number;
+          total_emissions?: number;
         };
       };
     };
@@ -222,17 +157,10 @@ export interface Database {
       [_ in never]: never;
     };
     Enums: {
-      content_access_role: 'free' | 'basic' | 'premium';
-      pricing_type: 'one_time' | 'recurring';
-      pricing_plan_interval: 'day' | 'week' | 'month' | 'year';
-      subscription_status:
-        | 'trialing'
-        | 'active'
-        | 'canceled'
-        | 'incomplete'
-        | 'incomplete_expired'
-        | 'past_due'
-        | 'unpaid';
+      [_ in never]: never;
+    };
+    CompositeTypes: {
+      [_ in never]: never;
     };
   };
 }

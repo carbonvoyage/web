@@ -11,7 +11,7 @@ export default function LandingPage() {
 
   useEffect(() => {
     if (user) {
-      router.replace('/account');
+      router.replace('/dashboard');
     }
   }, [user, router]);
 

@@ -1,0 +1,7 @@
+.summary_item {
+  @apply grid grid-cols-2 border-b last:border-b-0 p-4 border-carbon-bronze border-opacity-50;
+}
+
+.summary_item > p:nth-child(2) {
+  text-align: right;
+}
