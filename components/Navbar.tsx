@@ -100,7 +100,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
                 aria-label="Carbon Voyage Logo"
                 className="flex space-x-2"
               >
-                <Button variant="icon" size="none" aria-label="GitHub">
+                <Button variant="icon" size="none" aria-label="Carbon Voyage">
                   <Logo height="40px" width="40px" className="p-1" />
                 </Button>
                 {!minimal && (
