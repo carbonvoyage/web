@@ -17,3 +17,4 @@ export { default as Connections } from './Connections';
 export { default as CreditCard } from './CreditCard';
 export { default as CircleMinus } from './CircleMinus';
 export { default as ChevronRight } from './ChevronRight';
+export { default as PasswordEye } from './PasswordEye';

@@ -1,15 +1,16 @@
 import { GetServerSidePropsContext } from 'next';
-import { ReactNode, useState } from 'react';
+import { ReactElement, ReactNode, useState } from 'react';
 
 import {
   User,
   createServerSupabaseClient
 } from '@supabase/auth-helpers-nextjs';
 
-import Account from '@components/Account';
+import ChangePasswordView from '@components/Account/ChangePasswordView';
+import AccountLayout from '@components/AccountLayout';
+import Layout from '@components/Layout';
 
-import { useUser } from '@context/useUser';
-import { postData } from '@utils/helpers';
+import type { NextPageWithLayout } from '../_app';
 
 interface Props {
   title: string;
@@ -42,21 +43,16 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   };
 };
 
-export default function AccountPage({ user }: { user: User }) {
-  const [loading, setLoading] = useState(false);
-  const { isLoading, userDetails } = useUser();
-  const redirectToCustomerPortal = async () => {
-    setLoading(true);
-    try {
-      const { url, error } = await postData({
-        url: '/api/create-portal-link'
-      });
-      window.location.assign(url);
-    } catch (error) {
-      if (error) return alert((error as Error).message);
-    }
-    setLoading(false);
-  };
+const AccountPage: NextPageWithLayout = () => {
+  return <ChangePasswordView />;
+};
 
-  return <Account />;
-}
+AccountPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      <AccountLayout>{page}</AccountLayout>
+    </Layout>
+  );
+};
+
+export default AccountPage;

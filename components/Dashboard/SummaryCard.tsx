@@ -38,7 +38,7 @@ export default function SummaryCard() {
   });
 
   return (
-    <div className="h-fit bg-carbon-white rounded-b-lg col-span-2">
+    <div className="h-fit bg-carbon-white rounded-b-lg col-span-3 lg:col-span-2">
       <div className="p-4 bg-carbon-bronze rounded-t-lg flex items-center">
         <span className="text-2xl text-carbon-gold">Transaction Summary</span>
       </div>

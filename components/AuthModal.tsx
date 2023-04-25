@@ -11,7 +11,7 @@ import toast from 'react-hot-toast';
 import Button from '@components/Button';
 
 import { useAuthModal } from '@context/useAuthModal';
-import { getURL } from '@utils/helpers';
+import { validEmailRegex, validPasswordRegex } from '@utils/helpers';
 
 import { Apple, Close, GitHub, Google, Notion } from '@assets/icons';
 
@@ -85,7 +85,7 @@ const Form: FunctionComponent<FormProps> = ({
       return false;
     }
     // eslint-disable-next-line no-useless-escape
-    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email)) {
+    else if (validEmailRegex.test(email)) {
       toast.error('Email must be valid.');
       return false;
     }
@@ -105,7 +105,7 @@ const Form: FunctionComponent<FormProps> = ({
   };
 
   const validPassword = () => {
-    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(password)) {
+    if (validPasswordRegex.test(password)) {
       toast.error(
         'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.'
       );

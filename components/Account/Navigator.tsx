@@ -1,51 +1,48 @@
-import { CircleMinus, Connections, CreditCard, UserPen } from 'assets/icons';
+import Link from 'next/link';
+
+import { CircleMinus, Connections, UserPen } from 'assets/icons';
+import { useUser } from 'context/useUser';
 
 const Navigator = () => {
+  const { userDetails } = useUser();
+
   return (
-    <div className="bg-carbon-white rounded-b-lg basis-1/3 h-fit">
+    <div className="bg-carbon-white rounded-lg basis-1/3 border overflow-hidden border-carbon-bronze h-fit">
       <div className="p-4 bg-carbon-bronze rounded-t-lg flex items-center">
-        <span className="rounded-full w-10 h-10 bg-carbon-gold mr-4"></span>
         <div className="flex flex-col">
           <span className="text-xl text-carbon-gold font-semibold">
-            Joe Acme
+            {`${userDetails?.first_name} ${userDetails?.last_name}`}
           </span>
           <span className="text-md text-carbon-gold">
             Your Personal Account
           </span>
         </div>
       </div>
-      <div className="flex flex-col p-4 space-y-5">
+      <div className="flex flex-col p-4 space-y-5 cursor-pointer">
         <div className="space-x-2">
           <UserPen
             height="30px"
             width="30px"
             className="p-1 fill-carbon-bronze inline-block"
           />
-          <span className="">Edit Account Information</span>
+          <Link href="/account">Edit Account Information</Link>
         </div>
-        <div className="space-x-2">
-          <CreditCard
-            height="30px"
-            width="30px"
-            className="p-1 fill-carbon-bronze inline-block"
-          />
-          <span className="">Edit Payment Information</span>
-        </div>
+
         <div className="space-x-2">
           <Connections
             height="30px"
             width="30px"
             className="p-1 fill-carbon-bronze inline-block"
           />
-          <span className="">Connected Devices</span>
+          <Link href="/account">Connected Devices</Link>
         </div>
-        <div className="space-x-2">
+        <div className="space-x-2 cursor-pointer">
           <CircleMinus
             height="30px"
             width="30px"
             className="p-1 fill-carbon-bronze inline-block"
           />
-          <span className="">Close your account</span>
+          <Link href="/account/close">Close your account</Link>
         </div>
       </div>
     </div>

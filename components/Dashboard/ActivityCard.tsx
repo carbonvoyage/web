@@ -6,7 +6,7 @@ export default function ActivityCard() {
   const { transactionDetails } = useUser();
 
   return (
-    <div className="bg-carbon-white rounded-b-lg row-span-2 col-span-3 h-fit">
+    <div className="bg-carbon-white rounded-b-lg row-span-1 lg:row-span-2 col-span-3 h-fit">
       <div className="p-4 bg-carbon-bronze rounded-t-lg flex items-center">
         <span className="text-2xl text-carbon-gold">Recent Activity</span>
       </div>

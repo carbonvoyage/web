@@ -29,6 +29,14 @@ export const postData = async ({ url, data }: { url: string; data?: any }) => {
   return res.json();
 };
 
+export const validPasswordRegex = new RegExp(
+  '!/^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]{8,}$/'
+);
+
+export const validEmailRegex = new RegExp(
+  '!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$/i'
+);
+
 export const toDateTime = (secs: number) => {
   var t = new Date('1970-01-01T00:30:00Z'); // Unix epoch start.
   t.setSeconds(secs);
