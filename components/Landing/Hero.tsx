@@ -4,6 +4,8 @@ import Button from '@components/Button';
 
 import { useAuthModal } from '@context/useAuthModal';
 
+import Receipt from './Receipt';
+
 export default function Hero() {
   const [_isOpen, setIsAuthModalOpen, _view, setAuthModalView] = useAuthModal();
 
@@ -30,7 +32,9 @@ export default function Hero() {
           </Button>
         </div>
       </div>
-      <div className="basis-1/2"></div>
+      <div className="basis-1/2">
+        <Receipt />
+      </div>
     </section>
   );
 }
