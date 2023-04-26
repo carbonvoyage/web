@@ -17,7 +17,7 @@ import {
   Walmart
 } from '@assets/icons';
 
-import Receipt from './Receipt';
+import Receipt, { MiniReceipt } from './Receipt';
 
 const Install = () => {
   return (
@@ -220,7 +220,7 @@ export default function Rundown() {
                 transitionSpeed={6000}
                 perspective={500}
                 trackOnWindow={true}
-                className="hidden lg:static w-80 h-80 bg-carbon-white border border-carbon-bronze/20 shadow-xl shadow-carbon-bronze/40 rounded-2xl"
+                className="w-80 h-80 bg-carbon-white border border-carbon-bronze/20 shadow-xl shadow-carbon-bronze/40 rounded-2xl"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 {(() => {
@@ -230,14 +230,11 @@ export default function Rundown() {
                     case 'shop':
                       return <Shop />;
                     case 'offset':
-                      return <Receipt />;
+                      return <MiniReceipt />;
                   }
                   // @ts-ignore TODO: Fix this
                 }).call(this)}
               </Tilt>
-              <div className="lg:hidden overflow-hidden h-80 bg-carbon-white border border-carbon-bronze/20 shadow-xl shadow-carbon-bronze/20 rounded-2xl">
-                <Install />
-              </div>
             </div>
           </div>
         </div>
