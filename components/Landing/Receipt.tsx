@@ -4,7 +4,7 @@ import { Barcode, Logo } from '@assets/icons';
 
 const MiniReceipt = () => {
   return (
-    <div className="relative text-base w-80 h-80 overflow-hidden -translate-y-0.5 no-select">
+    <div className="bg-carbon-white relative text-base w-80 h-80 overflow-hidden -translate-y-0.5 no-select shadow-2xl shadow-carbon-bronze/40">
       <div className="relative z-10 p-4">
         <div className="flex space-x-4 pt-2">
           <Logo className="p-1" fill="#7d671f" />
@@ -59,7 +59,7 @@ const MiniReceipt = () => {
 const Receipt = () => {
   return (
     <>
-      <div className="relative no-select hidden lg:block">
+      <div className="relative no-select">
         <Logo className="absolute scale-[5] rotate-[260deg] top-40 left-24 w-20 p-2" />
         <Logo className="absolute scale-[7] rotate-[15deg] top-80 right-24 w-20 p-2" />
         <Tilt

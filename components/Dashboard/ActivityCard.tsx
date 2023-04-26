@@ -11,33 +11,43 @@ export default function ActivityCard() {
         <span className="text-2xl text-carbon-gold">Recent Activity</span>
       </div>
       <div className="flex flex-col">
-        {transactionDetails?.map((transaction) => {
-          const transactionDate = new Date(transaction.created_at);
-          return (
-            <div
-              className="flex p-5 border-b border-carbon-bronze last:border-b-0 border-opacity-50"
-              key={`${transaction.id}`}
-            >
-              <span className="w-14 mr-5">
-                {transactionDate.toLocaleDateString('en-us', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric'
-                })}
-              </span>
-              <div className="grid grid-cols-2 w-full">
-                <span className="font-display">{transaction.marketplace}</span>
-                <span className="font-display justify-self-end">
-                  {`$${transaction.total_price}`}
+        {transactionDetails?.length ? (
+          transactionDetails.map((transaction) => {
+            const transactionDate = new Date(transaction.created_at);
+            return (
+              <div
+                className="flex p-5 border-b border-carbon-bronze last:border-b-0 border-opacity-50"
+                key={`${transaction.id}`}
+              >
+                <span className="w-14 mr-5">
+                  {transactionDate.toLocaleDateString('en-us', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                  })}
                 </span>
-                <span className="">{`Donated to ${transaction.charities.name}`}</span>
-                <span className="justify-self-end">
-                  {`$${transaction.total_offset}`}
-                </span>
+                <div className="grid grid-cols-2 w-full">
+                  <span className="font-display self-end">
+                    {transaction.marketplace}
+                  </span>
+                  <span className="font-display justify-self-end self-end">
+                    {`$${transaction.total_price}`}
+                  </span>
+                  <span className="">{`Donated to ${transaction.charities.name}`}</span>
+                  <span className="justify-self-end">
+                    {`$${transaction.total_offset}`}
+                  </span>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        ) : (
+          <div className="flex p-5 border-b border-carbon-bronze last:border-b-0 border-opacity-50 h-80 justify-center">
+            <h1 className="text-xl self-center">
+              No transactions have been made with the Carbon Voyage Extension!
+            </h1>
+          </div>
+        )}
         <Link className="font-display mx-auto py-4" href="/">
           See All Transactions
         </Link>

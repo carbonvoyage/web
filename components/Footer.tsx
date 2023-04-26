@@ -14,7 +14,7 @@ const Footer: FunctionComponent<Props> = ({ size = 'normal' }) => {
   return (
     <footer className="md:p-8 bg-carbon-bronze text-carbon-gold mt-auto">
       {size === 'large' && (
-        <div className="mx-auto max-w-xl lg:h-screen-1/2 text-center py-16 lg:py-24">
+        <div className="mx-auto max-w-xl lg:h-screen-1/4 text-center py-12 lg:py-20">
           <h1 className="text-4xl lg:text-6xl font-display">
             Help us build
             <br />

@@ -40,7 +40,10 @@ export const MyUserContextProvider = (props: Props) => {
 
   const getUserDetails = () => supabase.from('users').select('*').single();
   const getTransactions = () =>
-    supabase.from('transactions').select(`*, charities(name)`);
+    supabase
+      .from('transactions')
+      .select(`*, charities(name)`)
+      .order('created_at', { ascending: false });
 
   useEffect(() => {
     if (user && !isLoadingData && !userDetails) {

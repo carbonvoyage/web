@@ -35,6 +35,16 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
         permanent: false
       }
     };
+  else {
+    if (session.user.user_metadata.provider !== 'email') {
+      return {
+        redirect: {
+          destination: '/account',
+          permanent: false
+        }
+      };
+    }
+  }
   return {
     props: {
       initialSession: session,

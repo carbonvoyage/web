@@ -62,7 +62,7 @@ const ChangeName = () => {
             <input
               className="border-none bg-carbon-white border-carbon-bronze p-4 w-full placeholder-carbon-bronze"
               type="text"
-              placeholder={`${userDetails?.first_name}`}
+              placeholder={`${userDetails?.first_name ?? ''}`}
               onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
@@ -73,7 +73,7 @@ const ChangeName = () => {
             <input
               className="border-none bg-carbon-white border-carbon-bronze p-4 w-full placeholder-carbon-bronze"
               type="text"
-              placeholder={`${userDetails?.last_name}`}
+              placeholder={`${userDetails?.last_name ?? ''}`}
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>

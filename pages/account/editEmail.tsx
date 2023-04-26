@@ -1,10 +1,7 @@
 import { GetServerSidePropsContext } from 'next';
 import { ReactElement, ReactNode, useState } from 'react';
 
-import {
-  User,
-  createServerSupabaseClient
-} from '@supabase/auth-helpers-nextjs';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
 
 import ChangeEmailView from '@components/Account/ChangeEmailView';
 import AccountLayout from '@components/AccountLayout';
@@ -35,6 +32,16 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
         permanent: false
       }
     };
+  else {
+    if (session.user.user_metadata.provider !== 'email') {
+      return {
+        redirect: {
+          destination: '/account',
+          permanent: false
+        }
+      };
+    }
+  }
   return {
     props: {
       initialSession: session,

@@ -1,13 +1,45 @@
 import Link from 'next/link';
+import { ReactNode, useEffect, useState } from 'react';
 
-import { useUser as userAuthHook } from '@supabase/auth-helpers-react';
+import {
+  useSession,
+  useUser as userAuthHook
+} from '@supabase/auth-helpers-react';
+import { Apple, GitHub, Google, Notion } from 'assets/icons';
 import { ChevronRight } from 'assets/icons';
 
 import { useUser } from '@context/useUser';
 
+type Provider = {
+  name: string;
+  icon: ReactNode;
+};
+
+const providerList: { [key: string]: Provider } = {
+  google: {
+    name: 'Google',
+    icon: <Google width="30px" height="30px" className="fill-carbon-bronze" />
+  },
+  apple: {
+    name: 'Apple',
+    icon: <Apple width="30px" height="30px" className="fill-carbon-bronze" />
+  },
+  github: {
+    name: 'GitHub',
+    icon: <GitHub width="30px" height="30px" className="fill-carbon-bronze" />
+  }
+};
+
 const AccountDetailView = () => {
   const { userDetails } = useUser();
+  const session = useSession();
   const userAuthDetails = userAuthHook();
+
+  const [provider, setProvider] = useState('email');
+
+  useEffect(() => {
+    setProvider(session?.user.app_metadata.provider || 'email');
+  }, [session]);
 
   return (
     <div className="bg-carbon-white h-fit rounded-lg basis-2/3 border overflow-hidden border-carbon-bronze mx-2 sm:mx-8 lg:mx-0">
@@ -22,8 +54,12 @@ const AccountDetailView = () => {
             <div className="flex items-center">
               <div className="w-full">
                 <span className="text-sm">Your Name</span>
+
                 <p className="font-semibold">
-                  {`${userDetails?.first_name} ${userDetails?.last_name}`}
+                  {userDetails?.first_name && userDetails?.last_name
+                    ? `${userDetails?.first_name} ${userDetails?.last_name}`
+                    : 'Set Your Name'}
+                  {}
                 </p>
               </div>
               <div>
@@ -41,14 +77,25 @@ const AccountDetailView = () => {
             <div className="flex items-center">
               <div className="w-full">
                 <span className="text-sm">Password</span>
-                <p className="font-semibold">********</p>
+                {provider === 'email' ? (
+                  <p className="font-semibold">********</p>
+                ) : (
+                  <p className="font-semibold">
+                    Password can be changed through{' '}
+                    {providerList[provider].name}
+                  </p>
+                )}
               </div>
               <div>
-                <ChevronRight
-                  width="20px"
-                  height="20px"
-                  className="fill-carbon-bronze"
-                />
+                {provider === 'email' ? (
+                  <ChevronRight
+                    width="20px"
+                    height="20px"
+                    className="fill-carbon-bronze"
+                  />
+                ) : (
+                  providerList[provider].icon
+                )}
               </div>
             </div>
           </div>
@@ -58,14 +105,19 @@ const AccountDetailView = () => {
             <div className="flex items-center">
               <div className="w-full">
                 <span className="text-sm">Current Email Address</span>
+
                 <p className="font-semibold">{userAuthDetails?.email}</p>
               </div>
               <div>
-                <ChevronRight
-                  width="20px"
-                  height="20px"
-                  className="fill-carbon-bronze"
-                />
+                {provider === 'email' ? (
+                  <ChevronRight
+                    width="20px"
+                    height="20px"
+                    className="fill-carbon-bronze"
+                  />
+                ) : (
+                  providerList[provider].icon
+                )}
               </div>
             </div>
           </div>

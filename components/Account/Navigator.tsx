@@ -10,9 +10,11 @@ const Navigator = () => {
     <div className="bg-carbon-white rounded-lg basis-1/3 border overflow-hidden border-carbon-bronze h-fit">
       <div className="p-4 bg-carbon-bronze rounded-t-lg flex items-center">
         <div className="flex flex-col">
-          <span className="text-xl text-carbon-gold font-semibold">
-            {`${userDetails?.first_name} ${userDetails?.last_name}`}
-          </span>
+          {userDetails?.first_name && userDetails.last_name && (
+            <span className="text-xl text-carbon-gold font-semibold">
+              {`${userDetails?.first_name} ${userDetails?.last_name}`}
+            </span>
+          )}
           <span className="text-md text-carbon-gold">
             Your Personal Account
           </span>

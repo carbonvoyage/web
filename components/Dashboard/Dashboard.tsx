@@ -16,7 +16,9 @@ const Dashboard: FunctionComponent<Props> = ({ user }) => {
       <div className="bg-carbon-bronze mb-8 h-36 flex items-center p-6 lg:p-0">
         <div className="mx-auto w-full max-w-2xl lg:max-w-6xl space-y-2">
           <h1 className="text-2xl lg:text-4xl text-carbon-gold font-display ">
-            {user ? `Welcome back, ${user.first_name}` : 'Your Account'}
+            {user?.first_name
+              ? `Welcome back, ${user.first_name}`
+              : 'Your Account'}
           </h1>
           <p className="text-carbon-gold text-lg lg:text-xl">
             Here's a summary of your purchases and account details.

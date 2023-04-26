@@ -34,8 +34,13 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
 
   // Default links if none are passed in
   const defaultLinks: Link[] = [
-    { name: 'About', href: '/about' },
+    { name: 'About', href: '/#about-section' },
     { name: 'Calculator', href: '/calculator' }
+  ];
+
+  const userLinks: Link[] = [
+    { name: 'Dashboard', href: '/dashboard' },
+    { name: 'Account', href: '/account' }
   ];
 
   // On scroll, add blur to navbar
@@ -135,6 +140,16 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
                         {link.name}
                       </Link>
                     ))
+                  : user
+                  ? userLinks.map((link) => (
+                      <Link
+                        className="hover:underline decoration-wavy"
+                        href={link.href}
+                        key={link.name}
+                      >
+                        {link.name}
+                      </Link>
+                    ))
                   : defaultLinks.map((link) => (
                       <Link
                         className="hover:underline decoration-wavy"
@@ -144,6 +159,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
                         {link.name}
                       </Link>
                     ))}
+
                 {user ? (
                   <span
                     className="hover:underline decoration-wavy"
@@ -185,9 +201,36 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
         } bg-carbon-gold w-screen h-fit border-y text-carbon-bronze border-carbon-bronze border-opacity-50`}
       >
         <nav className="flex flex-col space-y-6 my-4 ml-8">
-          <Link href="/dashboard">Dashboard</Link>
-          <Link href="/account">Account</Link>
-          <Link href="/about">About</Link>
+          {links
+            ? links.map((link) => (
+                <Link
+                  className="hover:underline decoration-wavy"
+                  href={link.href}
+                  key={link.name}
+                >
+                  {link.name}
+                </Link>
+              ))
+            : user
+            ? userLinks.map((link) => (
+                <Link
+                  className="hover:underline decoration-wavy"
+                  href={link.href}
+                  key={link.name}
+                >
+                  {link.name}
+                </Link>
+              ))
+            : defaultLinks.map((link) => (
+                <Link
+                  className="hover:underline decoration-wavy"
+                  href={link.href}
+                  key={link.name}
+                >
+                  {link.name}
+                </Link>
+              ))}
+
           {user ? (
             <span
               onClick={async () => {

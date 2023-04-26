@@ -15,11 +15,13 @@ export default function SummaryCard() {
   useEffect(() => {
     const getTotalOffset = async () => {
       const { data, error } = await supabaseClient.rpc('total_offset');
-      setTotalOffset(error ? 'N/A' : data.toFixed(2));
+      let offset = data ? data : 0;
+      setTotalOffset(error ? 'N/A' : offset.toFixed(2));
     };
     const getTotalSpent = async () => {
       const { data, error } = await supabaseClient.rpc('total_spent');
-      setTotalSpent(error ? 'N/A' : data.toFixed(2));
+      let spent = data ? data : 0;
+      setTotalSpent(error ? 'N/A' : spent.toFixed(2));
     };
 
     const getUniqueCharities = async () => {
@@ -45,11 +47,11 @@ export default function SummaryCard() {
       <div className="flex flex-col">
         <div className={`${s.summary_item}`}>
           <p>Total Spent with Extension</p>
-          <p className="">{`$${totalSpent}`}</p>
+          <p className="">${totalSpent}</p>
         </div>
         <div className={`${s.summary_item}`}>
           <p>Total Offset Paid</p>
-          <p>{`$${totalOffset}`}</p>
+          <p>${totalOffset}</p>
         </div>
         <div className={`${s.summary_item}`}>
           <p>Organizations Donated To</p>

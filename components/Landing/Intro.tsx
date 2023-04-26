@@ -4,8 +4,8 @@ import { Book, Every, GitHub, Heart, Watch } from '@assets/icons';
 
 export default function Intro() {
   return (
-    <section className="bg-carbon-white">
-      <div className="mx-auto max-w-6xl py-12 lg:py-0 flex flex-col lg:flex-row">
+    <section id="about-section" className="bg-carbon-white">
+      <div className="mx-auto max-w-2xl lg:max-w-6xl py-12 lg:py-0 flex flex-col lg:flex-row">
         <div className="basis-1/2 py-12 px-8 lg:-my-40">
           <div className="lg:h-screen lg:sticky lg:top-0 lg:py-24">
             <div className="lg:absolute top-1/2 lg:-translate-y-1/2">
@@ -33,7 +33,7 @@ export default function Intro() {
             </div>
           </div>
         </div>
-        <div className="basis-1/2 px-8 lg:-my-40 py-10 lg:py-80 space-y-12 lg:space-y-24">
+        <div className="basis-1/2 px-8 lg:-my-40 py-10 lg:py-80 space-y-24">
           <div>
             <Watch
               width="64px"
