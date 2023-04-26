@@ -10,6 +10,7 @@ import { UserDetails } from 'types';
 
 type UserContextType = {
   accessToken: string | null;
+  refreshToken: string | null;
   user: User | null;
   userDetails: UserDetails | null;
   isLoading: boolean;
@@ -31,6 +32,7 @@ export const MyUserContextProvider = (props: Props) => {
   } = useSessionContext();
   const user = useSupaUser();
   const accessToken = session?.access_token ?? null;
+  const refreshToken = session?.refresh_token ?? null;
   const [isLoadingData, setIsloadingData] = useState(false);
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
 
@@ -56,6 +58,7 @@ export const MyUserContextProvider = (props: Props) => {
 
   const value = {
     accessToken,
+    refreshToken,
     user,
     userDetails,
     isLoading: isLoadingUser || isLoadingData
