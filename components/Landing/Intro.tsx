@@ -5,14 +5,14 @@ import { Book, Every, GitHub, Heart, Watch } from '@assets/icons';
 export default function Intro() {
   return (
     <section className="bg-carbon-white">
-      <div className="mx-auto max-w-6xl flex flex-row">
-        <div className="basis-1/2 py-12 px-8 -my-40">
-          <div className="h-screen sticky top-0 py-24">
-            <div className="absolute top-1/2 -translate-y-1/2">
+      <div className="mx-auto max-w-6xl py-12 lg:py-0 flex flex-col lg:flex-row">
+        <div className="basis-1/2 py-12 px-8 lg:-my-40">
+          <div className="lg:h-screen lg:sticky lg:top-0 lg:py-24">
+            <div className="lg:absolute top-1/2 lg:-translate-y-1/2">
               <h1 className="text-3xl lg:text-5xl font-display">
                 Built by Students, for a Better Future.
               </h1>
-              <div className="text-xl mt-6 space-y-2">
+              <div className="mt-6 space-y-2">
                 <p>
                   Carbon Voyage is a Senior Design project at the{' '}
                   <a href="https://www.stevens.edu/" className="underline">
@@ -26,14 +26,14 @@ export default function Intro() {
                   academic advisors.
                 </p>
                 <p>
-                  We are building Carbon Voyage to make a positive
-                  <br /> impact on the world.
+                  We are building Carbon Voyage to make a positive impact on the
+                  world.
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div className="basis-1/2 px-8 -my-40 py-80 space-y-24">
+        <div className="basis-1/2 px-8 lg:-my-40 py-10 lg:py-80 space-y-12 lg:space-y-24">
           <div>
             <Watch
               width="64px"
@@ -43,7 +43,7 @@ export default function Intro() {
             <h1 className="text-2xl lg:text-2xl font-display">
               Get Started in Minutes
             </h1>
-            <p className="text-xl mt-2">
+            <p className="mt-2">
               Carbon Voyage is a browser extension that makes it easy to
               understand and offset your carbon footprint. Sign up and install
               the extension in minutes.
@@ -58,7 +58,7 @@ export default function Intro() {
             <h1 className="text-2xl lg:text-2xl font-display">
               A Non-Profit Project
             </h1>
-            <p className="text-xl mt-2">
+            <p className="mt-2">
               Carbon Voyage is a non-profit project. We are not motivated by
               profit, but by the desire to make a positive impact on the world.
             </p>
@@ -72,7 +72,7 @@ export default function Intro() {
             <h1 className="text-2xl lg:text-2xl font-display">
               Free and Open Source
             </h1>
-            <p className="text-xl mt-2">
+            <p className="mt-2">
               Carbon Voyage is fully open source and free to use. We believe
               that everyone should have access to the tools they need to
               understand their carbon footprint.
@@ -95,7 +95,7 @@ export default function Intro() {
             <h1 className="text-2xl lg:text-2xl font-display">
               Powered by Every.org
             </h1>
-            <p className="text-xl mt-2">
+            <p className="mt-2">
               Every.org is a 501(c)(3) non-profit charity. All carbon offset
               purchases are made through Every.org, and all proceeds are granted
               to the charity of your choice.
@@ -115,7 +115,7 @@ export default function Intro() {
             <h1 className="text-2xl lg:text-2xl font-display">
               Built by Students
             </h1>
-            <p className="text-xl mt-2">
+            <p className="mt-2">
               With the help of our academic advisors and the open source
               community, we&apos;re building Carbon Voyage using the latest
               technologies such as React, Next.js, and Tailwind CSS.

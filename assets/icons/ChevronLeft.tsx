@@ -1,4 +1,4 @@
-const ChevronRight = ({ ...props }) => {
+const ChevronLeft = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,9 +12,9 @@ const ChevronRight = ({ ...props }) => {
       strokeLinejoin="round"
       {...props}
     >
-      <polyline points="9 18 15 12 9 6"></polyline>
+      <polyline points="15 18 9 12 15 6"></polyline>
     </svg>
   );
 };
 
-export default ChevronRight;
+export default ChevronLeft;

@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useRef, useState } from 'react';
+import { FunctionComponent, useRef, useState } from 'react';
 
 import { Dialog } from '@headlessui/react';
 import {
@@ -407,7 +407,7 @@ const AuthModal: FunctionComponent = () => {
                       size="small"
                       onClick={() => handleProviderLogin('github')}
                     >
-                      <GitHub className="p-1 fill-current" height="2rem" />
+                      <GitHub className="p-0.5 fill-current" height="2rem" />
                     </Button>
                     <Button
                       variant="light"

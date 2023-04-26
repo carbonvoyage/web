@@ -12,11 +12,13 @@ type Props = {
 
 const Footer: FunctionComponent<Props> = ({ size = 'normal' }) => {
   return (
-    <footer className="md:p-8 bg-carbon-bronze text-carbon-gold">
+    <footer className="md:p-8 bg-carbon-bronze text-carbon-gold mt-auto">
       {size === 'large' && (
-        <div className="mx-auto max-w-xl h-screen-1/2 text-center py-24">
-          <h1 className="text-6xl font-display">
-            Help us build Carbon Voyage.
+        <div className="mx-auto max-w-xl lg:h-screen-1/2 text-center py-16 lg:py-24">
+          <h1 className="text-4xl lg:text-6xl font-display">
+            Help us build
+            <br />
+            Carbon Voyage.
           </h1>
           <a
             className="inline-block mt-6"
@@ -28,15 +30,20 @@ const Footer: FunctionComponent<Props> = ({ size = 'normal' }) => {
               size="large"
               className="flex space-x-1 p-1"
             >
-              <GitHub height="40px" width="40px" fill="#7d671f" />
+              <GitHub
+                height="40px"
+                width="40px"
+                fill="#7d671f"
+                className="p-1 lg:p-0"
+              />
               <p className="py-2">Fork us on GitHub</p>
             </Button>
           </a>
         </div>
       )}
-      <div className="mx-auto max-w-6xl px-6 flex justify-between">
-        <div>
-          <Link href="/" className="flex space-x-2">
+      <div className="mx-auto max-w-6xl px-6 flex flex-col lg:flex-row justify-between">
+        <div className="text-xs lg:text-sm text-carbon-gold/80 my-4 lg:my-0 ">
+          <Link href="/" className="flex flex-row  space-x-2">
             <Button variant="icon" size="none" aria-label="GitHub">
               <Logo height="40px" width="40px" className="p-1" fill="#fff0ad" />
             </Button>
@@ -44,7 +51,7 @@ const Footer: FunctionComponent<Props> = ({ size = 'normal' }) => {
               Carbon Voyage
             </h1>
           </Link>
-          <p className="text-sm my-2 text-carbon-gold/80">
+          <p className="my-2 text-carbon-gold/80">
             Copyright © 2023 Carbon Voyage. All rights reserved.
             <br />
             <a
@@ -64,7 +71,7 @@ const Footer: FunctionComponent<Props> = ({ size = 'normal' }) => {
             </a>
           </p>
         </div>
-        <div className="text-sm text-carbon-gold/80">
+        <div className="text-xs lg:text-sm text-carbon-gold/80 order-first lg:order-last">
           <div className="h-10">
             <a href="https://github.com/carbonvoyage" target="_blank">
               <Button variant="icon" size="none" aria-label="GitHub">
@@ -97,7 +104,7 @@ const Footer: FunctionComponent<Props> = ({ size = 'normal' }) => {
               </Button>
             </a>
           </div>
-          <p className="my-2 text-sm">
+          <p className="my-2">
             Developed by students at the{' '}
             <a
               className="underline hover:text-carbon-gold/100"
@@ -107,7 +114,7 @@ const Footer: FunctionComponent<Props> = ({ size = 'normal' }) => {
               Stevens Institute of Technology
             </a>
             .
-            <br /> Free and open-source. Powered by{' '}
+            <br /> Free and open-source. Hosted by{' '}
             <a
               className="underline hover:text-carbon-gold/100"
               href="https://vercel.com"

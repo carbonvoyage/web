@@ -43,7 +43,7 @@ const ChangeName = () => {
   };
 
   return (
-    <div className="bg-carbon-white rounded-lg basis-2/3 border overflow-hidden border-carbon-bronze sm:mx-8 lg:mx-0">
+    <div className="bg-carbon-white rounded-lg basis-2/3 border overflow-hidden border-carbon-bronze mx-2 sm:mx-8 lg:mx-0">
       <div className="p-6 bg-carbon-bronze flex items-center">
         <span className="text-xl text-carbon-gold font-display">
           Change Your Name

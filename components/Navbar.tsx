@@ -35,7 +35,6 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
   // Default links if none are passed in
   const defaultLinks: Link[] = [
     { name: 'About', href: '/about' },
-    { name: 'Charities', href: '/charities' },
     { name: 'Calculator', href: '/calculator' }
   ];
 
@@ -67,15 +66,18 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
       <div className="bg-carbon-bronze text-carbon-gold">
         <div className="mx-auto max-w-6xl text-center py-2">
           <Warning className="inline-block mr-1 p-1" />
-          This project is in early development. Track progress on{' '}
-          <a
-            className="underline hover:text-carbon-gold/100"
-            target="_blank"
-            href="https://github.com/carbonvoyage/web"
-          >
-            GitHub
-          </a>
-          .
+          This project is in early development.{' '}
+          <span className="hidden md:inline">
+            Track progress on{' '}
+            <a
+              className="underline hover:text-carbon-gold/100"
+              target="_blank"
+              href="https://github.com/carbonvoyage/web"
+            >
+              GitHub
+            </a>
+            .
+          </span>
         </div>
       </div>
       <div
@@ -97,7 +99,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
                 aria-label="Carbon Voyage Logo"
                 className="flex space-x-2"
               >
-                <Button variant="icon" size="none" aria-label="GitHub">
+                <Button variant="icon" size="none" aria-label="Carbon Voyage">
                   <Logo height="40px" width="40px" className="p-1" />
                 </Button>
                 {!minimal && (
@@ -121,7 +123,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
                 />
               </button>
             </div>
-            <div className="hidden lg:flex flex-1 justify-end">
+            <div className="hidden lg:flex flex-1 justify-end items-center">
               <nav className="space-x-8 lg:block">
                 {links
                   ? links.map((link) => (
@@ -175,6 +177,30 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
             </div>
           </div>
         </div>
+      </div>
+      {/* Mobile Menu */}
+      <div
+        className={`${
+          mobileMenuOpened ? 'block' : 'hidden'
+        } bg-carbon-gold w-screen h-fit border-y text-carbon-bronze border-carbon-bronze border-opacity-50`}
+      >
+        <nav className="flex flex-col space-y-6 my-4 ml-8">
+          <Link href="/dashboard">Dashboard</Link>
+          <Link href="/account">Account</Link>
+          <Link href="/about">About</Link>
+          {user ? (
+            <span
+              onClick={async () => {
+                await supabaseClient.auth.signOut();
+                router.push('/signin');
+              }}
+            >
+              Sign out
+            </span>
+          ) : (
+            <Link href="/signin">Sign in</Link>
+          )}
+        </nav>
       </div>
     </>
   );

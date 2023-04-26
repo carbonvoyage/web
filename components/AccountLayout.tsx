@@ -14,7 +14,7 @@ export default function Layout({ children }: LayoutProps) {
   const mobileWidth = 1024;
 
   return (
-    <section className="mx-auto lg:flex w-full max-w-2xl md:max-w-6xl gap-x-8 mb-8 lg:my-8">
+    <section className="mx-auto lg:flex w-full max-w-2xl sm:max-w-6xl gap-x-8 mb-8 lg:my-8 lg:px-6">
       {width < mobileWidth ? <MobileNavigator /> : <Navigator />}
       {children}
     </section>
