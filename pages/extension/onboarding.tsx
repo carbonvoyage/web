@@ -10,12 +10,10 @@ const Onboarding = () => {
   const [_, setIsAuthModalOpen, _view, setAuthModalView] = useAuthModal();
 
   useEffect(() => {
-    if (!accessToken || !refreshToken) {
+    if (!accessToken) {
       setIsAuthModalOpen(true);
       setAuthModalView('sign_in');
       return;
-    } else {
-      setIsAuthModalOpen(false);
     }
 
     // @ts-ignore These APIs are only available when the extension is installed
@@ -31,7 +29,7 @@ const Onboarding = () => {
       case 'Opera':
       case 'Edge':
       case 'Brave':
-        browser.runtime.sendMessage('mdcgbdmolfjpjaljhjaocjnlkmidgfed', {
+        browser.runtime.sendMessage('hfcefidfclgdpfhekgddffjpnkbilnhf', {
           action: 'updateSession',
           session: {
             access_token: accessToken,

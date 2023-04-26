@@ -28,7 +28,7 @@ export default function MyApp({ Component, pageProps, ...appProps }: AppProps) {
     const extensionId =
       browserName === 'Firefox'
         ? 'f2ec00da-28c9-452e-aa88-ad04ad33ee0f'
-        : 'mdcgbdmolfjpjaljhjaocjnlkmidgfed';
+        : 'hfcefidfclgdpfhekgddffjpnkbilnhf';
     // @ts-ignore These APIs are only available when the extension is installed
     const browser = window.browser ?? window.chrome;
 
