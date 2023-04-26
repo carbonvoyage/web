@@ -33,7 +33,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
       }
     };
   else {
-    if (session.user.user_metadata.provider !== 'email') {
+    if (session.user.app_metadata.provider !== 'email') {
       return {
         redirect: {
           destination: '/account',

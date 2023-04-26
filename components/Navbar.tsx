@@ -33,10 +33,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
   const [_isOpen, setIsAuthModalOpen, _view, setAuthModalView] = useAuthModal();
 
   // Default links if none are passed in
-  const defaultLinks: Link[] = [
-    { name: 'About', href: '/#about-section' },
-    { name: 'Calculator', href: '/calculator' }
-  ];
+  const defaultLinks: Link[] = [{ name: 'About', href: '/#about-section' }];
 
   const userLinks: Link[] = [
     { name: 'Dashboard', href: '/dashboard' },
@@ -165,7 +162,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
                     className="hover:underline decoration-wavy"
                     onClick={async () => {
                       await supabaseClient.auth.signOut();
-                      router.push('/signin');
+                      router.push('/about');
                     }}
                   >
                     Sign out
@@ -198,9 +195,9 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
       <div
         className={`${
           mobileMenuOpened ? 'block' : 'hidden'
-        } bg-carbon-gold w-screen h-fit border-y text-carbon-bronze border-carbon-bronze border-opacity-50`}
+        } bg-carbon-white w-screen h-fit border-y text-carbon-bronze border-carbon-bronze border-opacity-50`}
       >
-        <nav className="flex flex-col space-y-6 my-4 ml-8">
+        <nav className="flex flex-col divide-y divide-carbon-bronze divide-opacity-30">
           {links
             ? links.map((link) => (
                 <Link
@@ -214,7 +211,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
             : user
             ? userLinks.map((link) => (
                 <Link
-                  className="hover:underline decoration-wavy"
+                  className="hover:underline decoration-wavy px-8 py-4"
                   href={link.href}
                   key={link.name}
                 >
@@ -233,6 +230,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
 
           {user ? (
             <span
+              className="hover:underline decoration-wavy px-8 py-4"
               onClick={async () => {
                 await supabaseClient.auth.signOut();
                 router.push('/signin');
@@ -241,7 +239,9 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
               Sign out
             </span>
           ) : (
-            <Link href="/signin">Sign in</Link>
+            <Link className="hover:underline decoration-wavy" href="/signin">
+              Sign in
+            </Link>
           )}
         </nav>
       </div>

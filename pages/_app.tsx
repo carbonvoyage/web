@@ -40,23 +40,23 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       ? 'mdcgbdmolfjpjaljhjaocjnlkmidgfed'
       : 'f2ec00da-28c9-452e-aa88-ad04ad33ee0f';
     // @ts-ignore
-    const browser = window.browser ?? window.chrome;
+    // const browser = window.browser ?? window.chrome;
 
     supabaseClient.auth.onAuthStateChange((event, session) => {
       switch (event) {
         case 'SIGNED_IN':
         case 'USER_UPDATED':
         case 'TOKEN_REFRESHED':
-          browser.runtime.sendMessage(extensionId, {
-            action: 'updateSession',
-            session: session
-          });
+          // browser.runtime.sendMessage(extensionId, {
+          //   action: 'updateSession',
+          //   session: session
+          // });
           break;
         case 'SIGNED_OUT':
         case 'PASSWORD_RECOVERY':
-          browser.runtime.sendMessage(extensionId, {
-            action: 'removeSession'
-          });
+          // browser.runtime.sendMessage(extensionId, {
+          //   action: 'removeSession'
+          // });
           break;
       }
     });

@@ -46,7 +46,7 @@ export default function SummaryCard() {
       </div>
       <div className="flex flex-col">
         <div className={`${s.summary_item}`}>
-          <p>Total Spent with Extension</p>
+          <p>Total Spent</p>
           <p className="">${totalSpent}</p>
         </div>
         <div className={`${s.summary_item}`}>

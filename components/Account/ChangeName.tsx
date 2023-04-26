@@ -32,8 +32,7 @@ const ChangeName = () => {
         .eq('id', userDetails?.id);
       if (error) {
         throw error;
-      }
-      if (data) {
+      } else {
         toast.success('Name successfully changed.');
       }
     } catch (error: any) {

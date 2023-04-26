@@ -16,20 +16,7 @@ const MobileNavigator = () => {
             Edit
           </Link>
         </li>
-        <li className="mr-2">
-          <Link
-            href="/account"
-            className="inline-flex py-4 "
-            aria-current="page"
-          >
-            <Connections
-              height="20px"
-              width="20px"
-              className="fill-carbon-bronze inline-block mr-2"
-            />
-            Devices
-          </Link>
-        </li>
+
         <li className="mr-2">
           <Link href="/account/close" className="inline-flex py-4">
             <CircleMinus

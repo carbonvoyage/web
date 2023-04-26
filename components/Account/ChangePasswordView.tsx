@@ -34,14 +34,13 @@ const ChangePasswordView = () => {
       ) {
         throw 'Password does not meet criteria.';
       }
-      if (password !== confirmPassword) {
+      if (password === confirmPassword) {
         const { data, error } = await supabaseClient.auth.updateUser({
           password: password
         });
         if (error) {
           throw error;
-        }
-        if (data) {
+        } else {
           toast.success('Password successfully changed!');
         }
       } else {
@@ -77,7 +76,6 @@ const ChangePasswordView = () => {
             <input
               className="border-none bg-carbon-white border-carbon-bronze p-4 w-full placeholder-carbon-bronze"
               type={passwordState.hidden ? 'password' : 'text'}
-              placeholder={`${userDetails?.first_name}`}
               onChange={(e) =>
                 setPasswordState({
                   ...passwordState,
@@ -104,8 +102,7 @@ const ChangePasswordView = () => {
             </label>
             <input
               className="border-none bg-carbon-white border-carbon-bronze p-4 w-full placeholder-carbon-bronze"
-              type="text"
-              placeholder={`${userDetails?.last_name}`}
+              type="password"
               onChange={(e) =>
                 setPasswordState({
                   ...passwordState,

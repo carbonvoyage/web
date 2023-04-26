@@ -1,4 +1,4 @@
-const ChevronRight = ({ ...props }) => {
+const ChevronRight = ({ className = '', ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,6 +10,7 @@ const ChevronRight = ({ ...props }) => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      className={className}
       {...props}
     >
       <polyline points="9 18 15 12 9 6"></polyline>

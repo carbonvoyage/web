@@ -30,14 +30,6 @@ const Navigator = () => {
           <Link href="/account">Edit Account Information</Link>
         </div>
 
-        <div className="space-x-2">
-          <Connections
-            height="30px"
-            width="30px"
-            className="p-1 fill-carbon-bronze inline-block"
-          />
-          <Link href="/account">Connected Devices</Link>
-        </div>
         <div className="space-x-2 cursor-pointer">
           <CircleMinus
             height="30px"

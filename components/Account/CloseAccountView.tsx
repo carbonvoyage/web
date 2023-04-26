@@ -4,10 +4,7 @@ import { useState } from 'react';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import toast from 'react-hot-toast';
 
-import { useUser } from '@context/useUser';
-
 const CloseAccountView = () => {
-  const { userDetails } = useUser();
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
   const [checked, setChecked] = useState(false);
@@ -17,14 +14,12 @@ const CloseAccountView = () => {
       const { data, error } = await supabaseClient.rpc('delete_user');
       if (error) {
         throw error;
-      }
-      if (data) {
+      } else {
         toast.success(
           'Successfully deleted your account. Redirecting to home page...'
         );
-        setTimeout(() => {
-          router.push('/');
-        }, 5000);
+        await supabaseClient.auth.signOut();
+        router.push('/');
       }
     } catch (error: any) {
       toast.error(error);

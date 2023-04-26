@@ -26,3 +26,5 @@ export { default as CreditCard } from './CreditCard';
 export { default as CircleMinus } from './CircleMinus';
 export { default as PasswordEye } from './PasswordEye';
 export { default as Walmart } from './Walmart';
+export { default as ChevronDown } from './ChevronDown';
+export { default as ChevronUp } from './ChevronUp';

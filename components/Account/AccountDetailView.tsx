@@ -48,7 +48,7 @@ const AccountDetailView = () => {
           Edit Your Account
         </span>
       </div>
-      <div className="flex flex-col py-2">
+      <div className="flex flex-col">
         <Link href="/account/editName">
           <div className="border-b px-4 md:px-6 py-4 border-carbon-bronze border-opacity-30 cursor-pointer">
             <div className="flex items-center">
@@ -73,7 +73,11 @@ const AccountDetailView = () => {
           </div>
         </Link>
         <Link href="/account/editPassword">
-          <div className="border-b px-4 md:px-6 py-4 border-carbon-bronze border-opacity-30 cursor-pointer">
+          <div
+            className={`border-b px-4 md:px-6 py-4 border-carbon-bronze border-opacity-30 cursor-pointer ${
+              provider !== 'email' && 'bg-carbon-light cursor-default'
+            }`}
+          >
             <div className="flex items-center">
               <div className="w-full">
                 <span className="text-sm">Password</span>
@@ -101,7 +105,11 @@ const AccountDetailView = () => {
           </div>
         </Link>
         <Link href="/account/editEmail">
-          <div className="px-4 md:px-6 py-4 cursor-pointer">
+          <div
+            className={`px-4 md:px-6 py-4 cursor-pointer ${
+              provider !== 'email' && 'bg-carbon-light cursor-default'
+            }`}
+          >
             <div className="flex items-center">
               <div className="w-full">
                 <span className="text-sm">Current Email Address</span>

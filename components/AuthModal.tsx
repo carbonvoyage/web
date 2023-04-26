@@ -58,6 +58,7 @@ const modal = {
 type FormProps = {
   view: 'sign_in' | 'sign_up' | 'forgotten_password' | undefined;
   setView: Function;
+  setIsOpen: Function;
   supabaseClient: SupabaseClient<any, 'public', any>;
   emailRef: any;
 };
@@ -65,6 +66,7 @@ type FormProps = {
 const Form: FunctionComponent<FormProps> = ({
   view = 'sign_in',
   setView,
+  setIsOpen,
   supabaseClient,
   emailRef
 }) => {
@@ -130,6 +132,8 @@ const Form: FunctionComponent<FormProps> = ({
       .then((response) => {
         if (response.error) {
           toast.error(response.error.message);
+        } else {
+          setIsOpen(false);
         }
       });
   };
@@ -427,6 +431,7 @@ const AuthModal: FunctionComponent = () => {
               <Form
                 view={view}
                 setView={setView}
+                setIsOpen={setIsOpen}
                 supabaseClient={supabaseClient}
                 emailRef={emailRef}
               />
