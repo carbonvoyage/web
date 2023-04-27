@@ -21,7 +21,7 @@ const Dashboard: FunctionComponent<Props> = ({ user }) => {
               : 'Dashboard'}
           </h1>
           <p className="text-carbon-gold text-lg lg:text-xl">
-            Here's a summary of your purchases and account details.
+            Here&apos;s a summary of your purchases and account details.
           </p>
         </div>
       </div>
