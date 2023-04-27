@@ -84,9 +84,10 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
       </div>
       <div
         className={`${
-          blurBackground
-            ? 'backdrop-blur-lg bg-carbon-gold bg-opacity-50 border-b border-carbon-bronze/20 py-3'
-            : 'py-3'
+          blurBackground &&
+          'backdrop-blur-lg bg-carbon-gold bg-opacity-50 border-b border-carbon-bronze/20'
+        } ${
+          mobileMenuOpened ? 'pt-3' : 'py-3'
         } sticky top-0 inset-x-0 z-40 transition-all duration-200`}
       >
         <a href="#skip" className="sr-only focus:not-sr-only">
@@ -190,63 +191,63 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
             </div>
           </div>
         </div>
-      </div>
-      {/* Mobile Menu */}
-      <div
-        className={`${
-          mobileMenuOpened ? 'block' : 'hidden'
-        } bg-carbon-white w-screen h-fit border-y text-carbon-bronze border-carbon-bronze border-opacity-50`}
-      >
-        <nav className="flex flex-col divide-y divide-carbon-bronze divide-opacity-30">
-          {links
-            ? links.map((link) => (
-                <Link
-                  className="hover:underline decoration-wavy px-8 py-4"
-                  href={link.href}
-                  key={link.name}
-                >
-                  {link.name}
-                </Link>
-              ))
-            : user
-            ? userLinks.map((link) => (
-                <Link
-                  className="hover:underline decoration-wavy px-8 py-4"
-                  href={link.href}
-                  key={link.name}
-                >
-                  {link.name}
-                </Link>
-              ))
-            : defaultLinks.map((link) => (
-                <Link
-                  className="hover:underline decoration-wavy px-8 py-4"
-                  href={link.href}
-                  key={link.name}
-                >
-                  {link.name}
-                </Link>
-              ))}
+        {/* Mobile Menu */}
+        <div
+          className={`${
+            mobileMenuOpened ? 'block' : 'hidden'
+          } bg-carbon-white w-screen h-fit border-y text-carbon-bronze border-carbon-bronze border-opacity-50 mt-4`}
+        >
+          <nav className="flex flex-col divide-y divide-carbon-bronze divide-opacity-30">
+            {links
+              ? links.map((link) => (
+                  <Link
+                    className="hover:underline decoration-wavy px-8 py-4"
+                    href={link.href}
+                    key={link.name}
+                  >
+                    {link.name}
+                  </Link>
+                ))
+              : user
+              ? userLinks.map((link) => (
+                  <Link
+                    className="hover:underline decoration-wavy px-8 py-4"
+                    href={link.href}
+                    key={link.name}
+                  >
+                    {link.name}
+                  </Link>
+                ))
+              : defaultLinks.map((link) => (
+                  <Link
+                    className="hover:underline decoration-wavy px-8 py-4"
+                    href={link.href}
+                    key={link.name}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
 
-          {user ? (
-            <span
-              className="hover:underline decoration-wavy px-8 py-4"
-              onClick={async () => {
-                await supabaseClient.auth.signOut();
-                router.push('/signin');
-              }}
-            >
-              Sign out
-            </span>
-          ) : (
-            <Link
-              className="hover:underline decoration-wavy px-8 py-4"
-              href="/signin"
-            >
-              Sign in
-            </Link>
-          )}
-        </nav>
+            {user ? (
+              <span
+                className="hover:underline decoration-wavy px-8 py-4"
+                onClick={async () => {
+                  await supabaseClient.auth.signOut();
+                  router.push('/signin');
+                }}
+              >
+                Sign out
+              </span>
+            ) : (
+              <Link
+                className="hover:underline decoration-wavy px-8 py-4"
+                href="/signin"
+              >
+                Sign in
+              </Link>
+            )}
+          </nav>
+        </div>
       </div>
     </>
   );
