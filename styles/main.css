@@ -2,14 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: 'apolline', serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+
 *,
 *:before,
 *:after {
   box-sizing: inherit;
-}
-
-*:focus {
-  @apply outline-none ring-2 ring-pink-500 ring-opacity-50;
 }
 
 html {
@@ -21,11 +25,9 @@ html {
 
 html,
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue',
-    'Helvetica', sans-serif;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  @apply text-white bg-carbon-gold antialiased;
+  @apply text-carbon-bronze bg-carbon-gold antialiased;
 }
 
 body {
@@ -49,4 +51,14 @@ a {
 
 .height-screen-helper {
   height: calc(100vh - 80px);
+}
+
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }

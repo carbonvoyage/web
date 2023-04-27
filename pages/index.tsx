@@ -1,27 +1,19 @@
-import Landing from '@/components/Landing';
-import { getActiveProductsWithPrices } from 'utils/supabase-client';
-import { Product } from 'types';
-import { GetStaticPropsResult } from 'next';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
-interface Props {
-  products: Product[];
-}
+import { useUser } from '@supabase/auth-helpers-react';
 
-// export default function PricingPage({ products }: Props) {
-//   return <Pricing products={products} />;
-// }
+import Landing from '@components/Landing';
 
 export default function LandingPage() {
+  const router = useRouter();
+  const user = useUser();
+
+  useEffect(() => {
+    if (user) {
+      router.replace('/dashboard');
+    }
+  }, [user, router]);
+
   return <Landing />;
-}
-
-export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
-  const products = await getActiveProductsWithPrices();
-
-  return {
-    props: {
-      products
-    },
-    revalidate: 60
-  };
 }

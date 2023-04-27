@@ -1,6 +1,6 @@
 {
-    "editor.formatOnSave": true,
-    "css.lint.unknownAtRules": "ignore",
-    "eslint.packageManager": "pnpm",
-    "eslint.workingDirectories": ["./packages", "./apps"]
+  "editor.formatOnSave": true,
+  "css.lint.unknownAtRules": "ignore",
+  "eslint.packageManager": "pnpm",
+  "eslint.workingDirectories": ["./packages", "./apps"]
 }

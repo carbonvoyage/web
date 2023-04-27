@@ -1,5 +1,3 @@
-import { Price } from 'types';
-
 export const getURL = () => {
   let url =
     process?.env?.NEXT_PUBLIC_SITE_URL ?? // Set this to your site URL in production env.
@@ -12,13 +10,7 @@ export const getURL = () => {
   return url;
 };
 
-export const postData = async ({
-  url,
-  data
-}: {
-  url: string;
-  data?: { price: Price };
-}) => {
+export const postData = async ({ url, data }: { url: string; data?: any }) => {
   console.log('posting,', url, data);
 
   const res: Response = await fetch(url, {
@@ -36,6 +28,14 @@ export const postData = async ({
 
   return res.json();
 };
+
+export const validPasswordRegex = new RegExp(
+  '!/^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]{8,}$/'
+);
+
+export const validEmailRegex = new RegExp(
+  '!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$/i'
+);
 
 export const toDateTime = (secs: number) => {
   var t = new Date('1970-01-01T00:30:00Z'); // Unix epoch start.

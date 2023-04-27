@@ -1,7 +1,5 @@
 # Carbon Voyage: Web
 
-Your way to make online purchases carbon-neutral. A Senior Design project for the Stevens Institute of Technology.
-
 ## Features
 
 - Secure user management and authentication with [Supabase](https://supabase.io/docs/guides/auth)

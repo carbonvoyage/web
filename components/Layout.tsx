@@ -1,10 +1,12 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
-import Navbar from 'components/Navbar';
-import Footer from 'components/Footer';
 import { ReactNode } from 'react';
-import { PageMeta } from '../types';
+
+import AuthModal from '@components/AuthModal';
+import Footer from '@components/Footer';
+import Navbar from '@components/Navbar';
+
+import { PageMeta } from 'types';
 
 interface Props {
   children: ReactNode;
@@ -19,6 +21,8 @@ export default function Layout({ children, meta: pageMeta }: Props) {
     cardImage: '/og.png',
     ...pageMeta
   };
+  // Check if we're on the homepage
+  const isHome = router.pathname === '/';
 
   return (
     <>
@@ -46,9 +50,14 @@ export default function Layout({ children, meta: pageMeta }: Props) {
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.cardImage} />
       </Head>
-      <Navbar />
-      <main id="skip">{children}</main>
-      <Footer />
+      <div className="flex flex-col h-screen">
+        <Navbar />
+        <main id="skip" className="text-lg">
+          {children}
+        </main>
+        <AuthModal />
+        <Footer size={isHome ? 'large' : 'normal'} />
+      </div>
     </>
   );
 }

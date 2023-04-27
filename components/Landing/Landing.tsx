@@ -1,17 +1,13 @@
 import Hero from './Hero';
-import Mission from './Mission';
+import Intro from './Intro';
 import Rundown from './Rundown';
-import News from './News';
-import Footer from '../Footer';
 
 const Landing = () => {
   return (
     <>
       <Hero />
-      <Mission />
+      <Intro />
       <Rundown />
-      <News />
-      <Footer />
     </>
   );
 };
