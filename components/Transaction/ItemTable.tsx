@@ -1,11 +1,21 @@
 import { useState } from 'react';
 
+import Pagination from '@components/Pagination';
+
 import { Product } from 'types';
 
 import { ChevronDown, ChevronUp } from '@assets/icons';
 
 const ItemTable = ({ product_data }: { product_data: Product[] }) => {
   const [activeProducts, setActiveProducts] = useState<string[]>([]);
+
+  const [start, setStart] = useState<number>(0);
+
+  const itemsPerPage = 3;
+  const end =
+    start + itemsPerPage > product_data.length
+      ? product_data.length
+      : start + itemsPerPage;
 
   const handleDetailToggle = (clickedProduct: string) => {
     if (activeProducts.includes(clickedProduct)) {
@@ -29,7 +39,7 @@ const ItemTable = ({ product_data }: { product_data: Product[] }) => {
           </tr>
         </thead>
         <tbody>
-          {product_data?.map((product, index) => {
+          {product_data?.slice(start, end).map((product, index) => {
             const { title, weight, height, width, materials, price, offset } =
               product;
             return (
@@ -74,8 +84,8 @@ const ItemTable = ({ product_data }: { product_data: Product[] }) => {
                     product.title
                   )}
                 </td>
-                <td className="p-5">${price}</td>
-                <td className="p-5">${offset}</td>
+                <td className="p-5">${price.toFixed(2)}</td>
+                <td className="p-5">${offset.toFixed(2)}</td>
                 <td className="p-5">
                   {activeProducts.includes(title) ? (
                     <ChevronUp className="" />
@@ -88,6 +98,13 @@ const ItemTable = ({ product_data }: { product_data: Product[] }) => {
           })}
         </tbody>
       </table>
+      <Pagination
+        start={start}
+        limit={itemsPerPage}
+        end={end}
+        total_count={product_data.length}
+        setStart={setStart}
+      />
     </div>
   );
 };

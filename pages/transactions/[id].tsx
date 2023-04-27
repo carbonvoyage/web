@@ -30,24 +30,33 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
     .select(`*, charities(*)`)
     .eq('id', id).single()
 
-
-
-  const { data: product_data, error: productError } = await supabase
+  if(!transaction_details) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false
+      }
+    }
+  }
+  else {
+    const { data: product_data, error: productError } = await supabase
     .from('products')
     .select('*')
     .eq('transaction_id', id);
 
 
-  return {
-    props: {
-      id: id,
-      initialSession: session,
-      user: session.user,
-      transaction_details: transaction_details,
-      product_data: product_data,
-      charity_data: transaction_details?.charities
-    }
-  };
+    return {
+      props: {
+        id: id,
+        initialSession: session,
+        user: session.user,
+        transaction_details: transaction_details,
+        product_data: product_data,
+        charity_data: transaction_details?.charities
+      }
+    };
+  }
+ 
 };
 
 const Transaction = ({ id, transaction_details, product_data, charity_data } : {

@@ -201,7 +201,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
           {links
             ? links.map((link) => (
                 <Link
-                  className="hover:underline decoration-wavy"
+                  className="hover:underline decoration-wavy px-8 py-4"
                   href={link.href}
                   key={link.name}
                 >
@@ -220,7 +220,7 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
               ))
             : defaultLinks.map((link) => (
                 <Link
-                  className="hover:underline decoration-wavy"
+                  className="hover:underline decoration-wavy px-8 py-4"
                   href={link.href}
                   key={link.name}
                 >
@@ -239,7 +239,10 @@ const Navbar: FunctionComponent<Props> = ({ minimal = false, links }) => {
               Sign out
             </span>
           ) : (
-            <Link className="hover:underline decoration-wavy" href="/signin">
+            <Link
+              className="hover:underline decoration-wavy px-8 py-4"
+              href="/signin"
+            >
               Sign in
             </Link>
           )}

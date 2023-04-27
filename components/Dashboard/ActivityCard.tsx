@@ -1,9 +1,26 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+
+import Pagination from '@components/Pagination';
 
 import { useUser } from '@context/useUser';
 
+import { Transaction } from 'types';
+
 export default function ActivityCard() {
   const { transactionDetails } = useUser();
+  const [transaction, setTransaction] = useState<Transaction[]>([]);
+  const [start, setStart] = useState<number>(0);
+
+  const itemsPerPage = 3;
+  const end =
+    start + itemsPerPage > transaction.length
+      ? transaction.length
+      : start + itemsPerPage;
+
+  useEffect(() => {
+    setTransaction(transactionDetails ?? []);
+  }, [transactionDetails]);
 
   return (
     <div className="bg-carbon-white rounded-b-lg row-span-1 lg:row-span-2 col-span-3 h-fit">
@@ -11,8 +28,8 @@ export default function ActivityCard() {
         <span className="text-2xl text-carbon-gold">Recent Activity</span>
       </div>
       <div className="flex flex-col">
-        {transactionDetails?.length ? (
-          transactionDetails.map((transaction) => {
+        {transaction?.length ? (
+          transaction.slice(start, end).map((transaction) => {
             const transactionDate = new Date(transaction.created_at);
             return (
               <Link
@@ -57,9 +74,13 @@ export default function ActivityCard() {
             </h1>
           </div>
         )}
-        <Link className="font-display mx-auto py-4" href="/">
-          See All Transactions
-        </Link>
+        <Pagination
+          total_count={transaction.length}
+          start={start}
+          limit={3}
+          setStart={setStart}
+          end={end}
+        />
       </div>
     </div>
   );

@@ -71,7 +71,7 @@ const Footer: FunctionComponent<Props> = ({ size = 'normal' }) => {
             </a>
           </p>
         </div>
-        <div className="text-xs lg:text-sm text-carbon-gold/80 order-first lg:order-last">
+        <div className="text-xs lg:text-sm text-carbon-gold/80 mt-4 lg:mt-0 order-first lg:order-last">
           <div className="h-10">
             <a href="https://github.com/carbonvoyage" target="_blank">
               <Button variant="icon" size="none" aria-label="GitHub">
