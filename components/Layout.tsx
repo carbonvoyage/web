@@ -51,8 +51,8 @@ export default function Layout({ children, meta: pageMeta }: Props) {
         <meta name="twitter:image" content={meta.cardImage} />
       </Head>
       <div className="flex flex-col h-screen">
-        <Navbar />
         <main id="skip" className="text-lg">
+          <Navbar />
           {children}
         </main>
         <AuthModal />
