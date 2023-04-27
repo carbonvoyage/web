@@ -6,6 +6,7 @@ import type { ReactElement, ReactNode } from 'react';
 
 import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { SessionContextProvider } from '@supabase/auth-helpers-react';
+import { browserName } from 'react-device-detect';
 import { Toaster } from 'react-hot-toast';
 
 import Layout from '@components/Layout';
@@ -34,29 +35,44 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   useEffect(() => {
     // Check which browser we're using
-    // TODO: Support for Firefox ID
-    // @ts-ignore
-    const extensionId = window.chrome
-      ? 'mdcgbdmolfjpjaljhjaocjnlkmidgfed'
-      : 'f2ec00da-28c9-452e-aa88-ad04ad33ee0f';
-    // @ts-ignore
-    // const browser = window.browser ?? window.chrome;
+    // TODO: Add support for Safari and Firefox
+    const extensionId =
+      browserName === 'Firefox'
+        ? 'f2ec00da-28c9-452e-aa88-ad04ad33ee0f'
+        : 'hfcefidfclgdpfhekgddffjpnkbilnhf';
+    // @ts-ignore These APIs are only available when the extension is installed
+    const browser = window.browser ?? window.chrome;
+
+    // Extension is not installed
+    if (!browser) {
+      return;
+    }
 
     supabaseClient.auth.onAuthStateChange((event, session) => {
-      switch (event) {
-        case 'SIGNED_IN':
-        case 'USER_UPDATED':
-        case 'TOKEN_REFRESHED':
-          // browser.runtime.sendMessage(extensionId, {
-          //   action: 'updateSession',
-          //   session: session
-          // });
+      switch (browserName) {
+        case 'Chrome':
+        case 'Opera':
+        case 'Edge':
+        case 'Brave':
+          switch (event) {
+            case 'SIGNED_IN':
+            case 'USER_UPDATED':
+            case 'TOKEN_REFRESHED':
+              browser.runtime.sendMessage(extensionId, {
+                action: 'updateSession',
+                session: session
+              });
+              break;
+            case 'SIGNED_OUT':
+            case 'PASSWORD_RECOVERY':
+              browser.runtime.sendMessage(extensionId, {
+                action: 'removeSession'
+              });
+              break;
+          }
           break;
-        case 'SIGNED_OUT':
-        case 'PASSWORD_RECOVERY':
-          // browser.runtime.sendMessage(extensionId, {
-          //   action: 'removeSession'
-          // });
+        default:
+          // TODO: Provide error message
           break;
       }
     });
