@@ -11,7 +11,7 @@ export default function Hero() {
   const [_isOpen, setIsAuthModalOpen, _view, setAuthModalView] = useAuthModal();
 
   return (
-    <section className="mx-auto max-w-2xl lg:max-w-6xl lg:h-hero flex flex-col lg:flex-row items-center px-8 md:pb-8">
+    <section className="mx-auto max-w-2xl lg:max-w-6xl lg:h-hero flex flex-col lg:flex-row items-center px-8 md:pb-8 overflow-x-hidden">
       <div className="text-carbon-bronze basis-1/2 pt-12 pb-20 md:py-0">
         <h1 className="text-3xl lg:text-6xl font-display">
           Your way to make online purchases carbon-neutral.
