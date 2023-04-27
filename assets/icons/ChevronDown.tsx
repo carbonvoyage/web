@@ -7,7 +7,7 @@ const ChevronDown = ({ className = '', ...props }) => {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     >
